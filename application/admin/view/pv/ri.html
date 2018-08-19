@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<div class="public public-ko">
+    <form action="{:url('pv/ri')}" method="get" class="layui-form layui-form-pane">
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">日期</label>
+            <div class="layui-input-inline">
+                <input type="text" name="ri" value="{:input('ri')}" id="date" placeholder="请输入日期" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <input  type="hidden" value="{:input('id')}" name="id" />
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+<!--内容-->
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="">
+        <col width="200">
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>日期</th>
+        <th>点击数量</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{:public_ri($ov['fl_day'])}</td>
+        <td>{:public_shu($sel,'fl_day',$ov['fl_day'],'fl_ency')}</td>
+        <td>
+            <button class="layui-btn layui-btn-xs save" layui-id="{:arr_jia($ov['fl_day'])}">查看ip详情</button>
+            <button href="{:url('pv/detele_ri')}" class="layui-btn layui-btn-xs layui-btn-danger public-del"
+                    layui-id="{:arr_jia($ov['fl_day'])}">删除
+            </button>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+<!--分页-->
+{$page}
+
+<script>
+    (function () {
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+            //日期
+            laydate.render({
+                elem: '#date'
+            });
+
+            //    删除
+            public_del();
+            //    打开详情
+            $('.save').click(function () {
+                $this = $(this).attr('layui-id');
+                page_add('','','查看ip详情','/admin/pv/ip.html?id='+$this)
+            });
+        })
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/index.css">
+    <!-- index -->
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">后台管理系统</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <div class="header-top">
+                <i class="iconfont" id="iconfont">&#xE71D;</i>
+            </div>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                   <a href="#"><i class="layui-icon" style="font-size: 25px;float:left;color: #fff;">&#xe612;</i>{:session('admin_user')}</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="{:url('index/tui')}"><i class="iconfont" style="font-size: 25px;float:left;" id="">&#xE637;</i>退出</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black" id="black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        {if condition="$yzm eq 200"}
+                            <a class="baijin index-ifr" href="{:url('header')}">首页</a>
+                        {else /}
+                        <!--<a class="baijin index-ifr" href="{:url('kefu')}">首页</a>-->
+                        {/if}
+                    </li>
+                    {volist name="quanx1" id="qua"}
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" >{$qua['name']}</a>
+                        <dl class="layui-nav-child">
+                            {volist name="quanx2" id="quanx"}
+                            {if condition="$quanx['guan'] eq $qua['id']"}
+                            <dd>
+                                <a class="baijin index-ifr" href="/admin/{$quanx['kong']}/{$quanx['fang']}" >{$quanx['name']}</a>
+                            </dd>
+                            {/if}
+                            {/volist}
+                        </dl>
+                    </li>
+                    {/volist}
+                    <!--<li class="layui-nav-item">-->
+                        <!--<a href="javascript:;">金额统计</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('newest/yue_money')}">本月金额</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('money/money_nian')}">全部金额</a>-->
+                            <!--</dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                    <!--<li class="layui-nav-item">-->
+                        <!--<a class="" href="javascript:;" >发货管理</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('newest/goods')}">发货中</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('newest/sign')}">已确定签收</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('newest/retu')}">退货</a>-->
+                            <!--</dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                    <!--<li class="layui-nav-item">-->
+                        <!--<a href="javascript:;">商品列表</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--&lt;!&ndash;<dd>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<a class="baijin" href="javascript:;">系统商品</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+                            <!--&lt;!&ndash; <dd>-->
+                                <!--<a class="baijin" href="javascript:;">静态商品添加</a>-->
+                            <!--</dd> &ndash;&gt;-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('goods/index')}">静态页面列表</a>-->
+                            <!--</dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                    <!--<li class="layui-nav-item">-->
+                        <!--<a href="javascript:;">流量列表</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('pv/yue')}">PV</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('uv/yue')}">UV</a>-->
+                            <!--</dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                    <!--<li class="layui-nav-item">-->
+                        <!--<a href="javascript:;">系统列表</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('admin/index')}">账号管理</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('page/index')}">设置页面跳转</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('level/index')}">设置域名页面</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('quanuser/index')}">添加权限名称</a>-->
+                            <!--</dd>-->
+                            <!--<dd>-->
+                                <!--<a class="baijin index-ifr" href="{:url('quan/index')}">添加权限</a>-->
+                            <!--</dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;width:100%;height: 100%;">
+                {if condition="$yzm eq 200"}
+                <iframe src="{:url('header')}" class="iframe" frameborder="0"></iframe>
+                {else /}
+                <iframe src="" class="iframe" frameborder="0"></iframe>
+                {/if}
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © 网站后台
+        </div>
+    </div>
+    <script src="__PUBLIC__/admin/js/index.js"></script>
+
+</body>
+</html>

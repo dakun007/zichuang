@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/header.css">
+</head>
+<body>
+    
+    <!-- 左边 -->
+    <div class="layui-row">
+        <div class="layui-col-md9">
+            <div class="grid-demo grid-demo-bg1">
+                <!-- 三大题目 -->
+                    <div class="layui-row">
+                        <div class="layui-col-md4">
+                            <div class="grid-demo grid-demo-bg1">
+                                <div class="header-three">
+                                    <div class="header-single">
+                                        <div class="header-img"><i class="iconfont header-icon">&#xE602;</i></div>
+                                        <div class="header-tion">
+                                            <div class="header-top">账号</div>
+                                            <div class="header-bottom">
+                                                <span class="span-name">{$user}</span>
+                                                <!--数据-->
+                                                <!--<span class="iconfont header-icon-two">&#xE636;</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <div class="grid-demo">
+                                <div class="header-three">
+                                    <div class="header-single">
+                                        <div class="header-img" style="background:#94e0e1;">
+                                            <i class="iconfont header-icon">&#xE60F;</i>
+                                        </div>
+                                        <div class="header-tion">
+                                            <div class="header-top">最新订单</div>
+                                            <div class="header-bottom">
+                                                <span class="span-name" style="color: #94e0e1;">{$model}</span>
+                                                <!--数据-->
+                                                <!--<span class="iconfont header-icon-two">&#xE635;</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <div class="grid-demo grid-demo-bg1">
+                                <div class="header-three">
+                                    <div class="header-single">
+                                        <div class="header-img" style="background: #86d2ee;">
+                                            <i class="iconfont header-icon">&#xE64C;</i>
+                                        </div>
+                                        <div class="header-tion">
+                                            <div class="header-top">全部订单</div>
+                                            <div class="header-bottom">
+                                                <span class="span-name" style="color: #86d2ee;">{$order}</span>
+                                                <!--数据-->
+                                                <!--<span class="iconfont header-icon-two">&#xE635;</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 图像数据 -->
+                    <div class="header-hical">
+                        <div id="container" style="width:100%;height: 100%;"></div>
+                    </div>
+
+                    <!-- 服务器信息 -->
+                    <div class="header-hical header-server">
+                        <div class="header-not">
+                            <div class="header-not-title">服务器信息</div>
+                            <div class="layui-row">
+                                <div class="col-md-2">
+                                    <div class="col-md-3">服务器环境</div>
+                                    <div class="col-md-4">Apache/2.4.4 (Win32) PHP/5.4.16</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="col-md-3">服务器IP地址</div>
+                                    <div class="col-md-4">127.0.0.1</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="col-md-3">服务器域名</div>
+                                    <div class="col-md-4">localhost</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="col-md-3">PHP版本</div>
+                                    <div class="col-md-4">5.4.16</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="col-md-3">数据库信息</div>
+                                    <div class="col-md-4">5.6.12-log</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="col-md-3">服务器当前时间</div>
+                                    <div class="col-md-4">{:date('Y-m-d H:i:s',time())}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- 右边 -->
+        <div class="layui-col-md3">
+            <div class="grid-demo">
+                <!-- 最近登录情况 -->
+                <div class="sign">
+                    <div class="header-not-title">最近登录情况</div>
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="60">
+                            <col width="">
+                            <col width="">
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>序列</th>
+                                <th>名称</th>
+                                <th>登录时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {volist name="lately" id="ov"}
+                            <tr>
+                                <td>{$key+1}</td>
+                                <td>{$ov['ad_user']}</td>
+                                <td>{:public_time($ov['la_time'])}</td>
+                            </tr>
+                        {/volist}
+                        </tbody>
+                    </table>
+                    <!--<ul class="pagination" style="margin-left: 10px;">-->
+                        <!--<li class="disabled">-->
+                            <!--<span>«</span>-->
+                        <!--</li>-->
+                        <!--<li class="active">-->
+                            <!--<span>1</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="/admin/Admin/lst.html?page=2">2</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="/admin/Admin/lst.html?page=2">»</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                </div>
+                <!-- 系统操作记录 -->
+                
+                <!-- 联系技术员 -->
+                <div class="recd">
+                    <div class="header-not-title">联系技术员</div>
+                    <p>QQ : 1275263021</p>
+                    <p>E-mail : 1275263021@qq.com</p>
+                </div>
+                <!-- 登陆员 -->
+                <div class="denglu">
+                    欢迎管理员： <span style="color: red;">{:session('admin_user')}</span>
+                    <br />
+                    当前服务器时间： {:date('Y-m-d H:i:s',time())}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<table id="datatable" style="display: none;">
+    <thead>
+        <tr>
+            <th></th>
+            <th>PV</th>
+            <th>UV</th>
+        </tr>
+    </thead>
+    <tbody>
+        {volist name="pv" id="po"}
+        <tr>
+            <th>{:public_ri($po['fl_day'])}日</th>
+            <td>{:public_shu($fl,'fl_day',$po['fl_day'],'fl_ency',200)}</td>
+            <td>{:public_uv($fl,$po['fl_day'],'fl_ip','fl_day',200)}</td>
+        </tr>
+        {/volist}
+        
+    </tbody>
+</table>
+
+
+<script src="__PUBLIC__/admin/Highcharts/code/highcharts.js"></script>
+<script src="__PUBLIC__/admin/Highcharts/code/modules/data.js"></script>
+<script src="__PUBLIC__/admin/Highcharts/code/modules/exporting.js"></script>
+<script src="__PUBLIC__/admin/js/header.js"></script>
+</body>
+</html>

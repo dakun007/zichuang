@@ -1,0 +1,71 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/10　15:08
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<div class="public">
+    <button class="layui-btn layui-btn-xs add">添加</button>
+</div>
+
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>跳转地址</th>
+        <th>指向地址</th>
+        <th>备注</th>
+        <th>添加时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$ov['user']}</td>
+        <td>{$ov['nameuser']}</td>
+        <td>{$ov['remarks']}</td>
+        <td>{$ov['create_time']}</td>
+        <td>
+            <a class="layui-btn-xs layui-btn save" layui-id="{:arr_jia($ov['id'])}">修改</a>
+            <a  href="{:url('page/delete_page')}" class="layui-btn-xs layui-btn layui-btn-danger public-del" layui-id="{:arr_jia($ov['id'])}">删除</a>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+<!--分页-->
+{$page}
+
+<script>
+    (function(){
+        $('.add').click(function(){
+            page_add('','','添加','/admin/page/add.html')
+
+        });
+        $('.save').click(function(){
+            $this = $(this).attr('layui-id');
+            page_add('','','修改','/admin/page/save.html?id='+$this)
+        });
+
+        public_del();
+    })();
+</script>
+
+</body>
+</html>

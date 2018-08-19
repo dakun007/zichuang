@@ -1,0 +1,88 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/13　1:05
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+    <style>
+        .erji,.sanji,.name{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<form class="layui-form layui-form-pane" action="{:url('save')}" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" value="{$find['name']}" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">等级</label>
+        <div class="layui-input-block public-input-radio" style="">
+            <input type="radio"  lay-filter="jibie" name="fuji" value="1" title="一级" {$find['fuji']==1?'checked':''} >
+            <input type="radio"  lay-filter="jibie" name="fuji" value="2" title="二级" {$find['fuji']==2?'checked':''}>
+            <input type="radio"  lay-filter="jibie" name="fuji" value="3" title="三级" {$find['fuji']==3?'checked':''}>
+        </div>
+    </div>
+
+    <!--选择一级父级-->
+    <div class="layui-form-item erji" style="{$find['fuji']==2?'display:block;':''}">
+        <label class="layui-form-label">选择父级</label>
+        <div class="layui-input-block">
+            <select name="jibie2">
+                <option value="">选择一级父级</option>
+                {volist name="str" id="ov"}
+                {if condition="$ov['fuji'] eq 1"}
+                <option  value="{$ov['id']}" {$find['guan']==$ov['id']?'selected':''}>{$ov['name']}</option>
+                {/if}
+                {/volist}
+            </select>
+        </div>
+    </div>
+
+    <!--选择二级父级-->
+    <div class="layui-form-item sanji" style="{$find['fuji']==3?'display:block;':''}">
+        <label class="layui-form-label">选择父级</label>
+        <div class="layui-input-block">
+            <select name="jibie3">
+                <option value="">选择二级父级</option>
+                {volist name="str" id="vo"}
+                {if condition="$vo['fuji'] eq 2"}
+                <option value="{$vo['id']}" {$find['guan']==$vo['id']?'selected':''}>{$vo['name']}</option>
+                {/if}
+                {/volist}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item name">
+        <label class="layui-form-label">控制器</label>
+        <div class="layui-input-block">
+            <input type="text" name="kong" value="{$find['kong']}" placeholder="请输入控制器" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item name">
+        <label class="layui-form-label">方法</label>
+        <div class="layui-input-block">
+            <input type="text" name="fang" value="{$find['fang']}"  placeholder="请输入方法" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <input type="hidden" value="{$find['id']}" name="id">
+    {:submit()}
+
+</form>
+
+
+<script src="__PUBLIC__/admin/quan/add.js"></script>
+
+
+</body>
+</html>

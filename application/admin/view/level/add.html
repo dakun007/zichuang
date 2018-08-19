@@ -1,0 +1,43 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/10　16:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<form class="layui-form layui-form-pane" action="{:url('level/add')}" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">域名</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" required  lay-verify="required" placeholder="请输入域名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">指向地址</label>
+        <div class="layui-input-block">
+            <select name="point_id" required lay-verify="required">
+                <option value=""></option>
+                {volist name="list" id="vo"}
+                <option value="{$vo['go_id']}" >{$vo['go_user']} (备注： {$vo['go_bak']})</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <input type="text" name="remarks" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    {:submit()}
+</form>
+
+<script src="__PUBLIC__/admin/level/add.js"></script>
+
+</body>
+</html>

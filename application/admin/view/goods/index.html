@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {include file="public/header"}
+   <style>
+       /* .goods-sou{
+           background: red;
+           padding: 10px;
+       } */
+
+   </style>
+</head>
+<body>
+    <!-- 搜索区域 -->
+    <form action="{:url('goods/index')}" class="layui-form layui-form-pane" method="get">
+        <div class="public goods-sou">
+            <div class="layui-form-item publi-left">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" value="{:input('username')}" lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <button class="layui-btn publi-left" lay-submit="" lay-filter="demo1">搜索</button>
+        </div>
+    </form>
+
+    <!-- 操作区域 -->
+    
+    <div class="public caozuo">
+        <button class="layui-btn layui-btn-sm public-right add">添加</button>
+    </div>
+
+    <!-- 内容区域  -->
+    <table class="layui-table">
+        <colgroup>
+          <col width="80">
+          <col width="">
+          <col width="200">
+          <col width="200">
+          <col width="200">
+          <col width="300">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>金额</th>
+            <th>备注</th>
+            <th>添加时间</th>
+            <th>操作</th>
+          </tr> 
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+            <tr>
+                <td>{$vo['go_id']}</td>
+                <td>{$vo['go_user']}</td>
+                <td>{$vo['go_money']}</td>
+                <td>{$vo['go_bak']}</td>
+                <td>{$vo['create_time']}</td>
+                <td>
+                    <button class="layui-btn layui-btn-xs save" layui-id="{:arr_jia($vo['go_id'])}">修改</button>
+                    <button class="layui-btn layui-btn-xs layui-btn-normal subg"  layui-id="{:arr_jia($vo['go_id'])}" layui-name="{$vo['go_user']}">查看子页</button>
+                    <button href="{:url('goods/delete_goods')}" class="layui-btn layui-btn-xs layui-btn-danger public-del"  layui-id="{:arr_jia($vo['go_id'])}">删除</button>
+                    <button class="layui-btn layui-btn-xs layui-btn-primary yulan" layui-url="/index/goods/{$vo['go_user']}.html">预览</button>
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+
+    <!-- 分页 -->
+    {$page}
+
+    <script>
+        
+        (function(){
+
+            // 添加
+            $('.add').click(function(){
+                page_add('','','添加','/admin/goods/add.html');
+            });
+            // 修改
+            $('.save').click(function(){
+                $val = $(this).attr('layui-id');
+                page_add('','','修改','/admin/goods/save.html?id='+$val);
+            });
+            // 预览
+            $('.yulan').click(function(){
+                $url = $(this).attr('layui-url');
+                window.open($url);
+            });
+            //查看子级
+            $('.subg').click(function(){
+                $val = $(this).attr('layui-id');
+                $name = $(this).attr('layui-name');
+                page_add('','','查看( '+$name+' )的子级页面 ','/admin/goods/subg.html?id='+$val);
+            });
+            public_del();
+        })();
+    
+    </script>
+</body>
+</html>

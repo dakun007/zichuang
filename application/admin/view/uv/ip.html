@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<div class="public public-ko">
+    <form action="{:url('pv/ip')}" method="get" class="layui-form layui-form-pane">
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">ip</label>
+            <div class="layui-input-inline">
+                <input type="text" name="ip" value="{:input('ip')}" id="date" placeholder="请输入ip" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <input  type="hidden" value="{:input('id')}" name="id" />
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+<!--内容-->
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>ip</th>
+        <th>ip地区</th>
+        <th>日期</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$ov['fl_ip']}</td>
+        <td>{$ov['fl_adds']}</td>
+        <td>{:public_time($ov['fl_time'])}</td>
+        <td>
+            <button href="{:url('pv/detele_ip_ri')}" class="layui-btn layui-btn-xs layui-btn-danger public-del"
+                    layui-id="{:arr_jia($ov['fl_ip'])}">删除
+            </button>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+<!--分页-->
+{$page}
+
+<script>
+    (function(){
+        layui.use(['form'], function () {
+            var form = layui.form;
+
+            //    删除
+            $url = public_get('id');
+            public_del($url);
+        })
+    })();
+</script>
+
+
+</body>
+</html>

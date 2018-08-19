@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {include file="public/header"}
+</head>
+<body>
+
+    <div class="public">
+        <button class="public-right layui-btn layui-btn-sm add">添加</button>
+    </div>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="80">
+            <col width="">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="300">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>序列</th>
+            <th>名称</th>
+            <th>备注</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr>
+            <td>{$key+1}</td>
+            <td>{$vo['go_user']}</td>
+            <td>{$vo['go_bak']}</td>
+            <td>{$vo['create_time']}</td>
+            <td>
+                <button class="layui-btn layui-btn-xs save" layui-id="{:arr_jia($vo['go_id'])}">修改</button>
+                <button href="{:url('goods/delete_goods')}" class="layui-btn layui-btn-xs layui-btn-danger public-del"  layui-id="{:arr_jia($vo['go_id'])}">删除</button>
+                <button class="layui-btn layui-btn-xs layui-btn-primary yulan" layui-url="/index/goods/{$vo['go_user']}.html">预览</button>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    {$page}
+    <script>
+
+        (function () {
+            //获取父级id信息
+            $fuji = public_get('id');
+            localStorage.subg = $fuji;
+            // 添加
+            $('.add').click(function(){
+                page_add('','','子级添加','/admin/goods/subg_add.html?id='+$fuji);
+            });
+
+            // 修改
+            $('.save').click(function(){
+                $val = $(this).attr('layui-id');
+                page_add('','','子级修改','/admin/goods/subg_save.html?id='+$val);
+            });
+            // 预览
+            $('.yulan').click(function(){
+                $url = $(this).attr('layui-url');
+                window.open($url);
+            });
+            //删除
+            public_del();
+        })();
+
+    </script>
+
+</body>
+</html>

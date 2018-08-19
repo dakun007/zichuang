@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+
+</head>
+<body>
+
+<form action="{:url('goods/subg_save')}" class="layui-form layui-form-pane" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="go_user" value="{$val['go_user']}" required lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <input type="text" name="go_bak" value="{$val['go_bak']}"  placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text" style="width:99.9%;">
+        <label class="layui-form-label">代码区域</label>
+        <div class="layui-input-block">
+            <textarea name="desc" style="height:400px; " required lay-verify="required" placeholder="请输入内容" class="layui-textarea">{$sl}</textarea>
+        </div>
+    </div>
+    <input type="hidden" name="go_id" value="{$val['go_id']}">
+
+    <button class="layui-btn submit-btn" lay-submit lay-filter="formDemo">立即提交</button>
+</form>
+
+<script src="__PUBLIC__/admin/goods/subg_add.js"></script>
+
+</body>
+</html>

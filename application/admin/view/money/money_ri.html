@@ -1,0 +1,81 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/7　17:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<!--搜索区域-->
+<div class="public public-ko">
+    <form action="{:url('money/money_ri')}" method="get" class="layui-form layui-form-pane">
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">产品名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="user" value="{:input('user')}" id="date" placeholder="输入产品名称" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{:input('id')}">
+        <input type="hidden" name="nian" value="{:input('nian')}">
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+<!--内容-->
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="">
+        <col width="100">
+        <col width="100">
+        <col width="150">
+        <col width="100">
+        <col width="200">
+        <col width="100">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>产品名称</th>
+        <th>款式</th>
+        <th>金额</th>
+        <th>是否发货</th>
+        <th>是否有效</th>
+        <th>添加时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {volist name="list" id="vo"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$vo['or_name']}</td>
+        <td>{$vo['or_style']}</td>
+        <td>{$vo['or_moeny']}</td>
+        <td>{:goods_fahuo($vo['or_goods'])}</td>
+        <td>{:goods_zhuan($vo['or_tive'])}</td>
+        <td>{$vo['create_time']}</td>
+        <td>
+            <a class="layui-btn-xs layui-btn yulan" href="/index/goods/{$vo['go_user']}.html">预览页面</a>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+
+</table>
+
+<!--分页-->
+{$page}
+<!--金额-->
+当前金额：{:public_jie($meny,'or_moeny')} 元
+
+
+<script src="__PUBLIC__/admin/newest/index.js"></script>
+
+</body>
+</html>
