@@ -1,0 +1,109 @@
+body{
+    position:absolute;
+    left:0;
+    right: 0;
+    bottom:0;
+    top:0;
+    background:url("../img/new_bg_6.jpg");
+}
+.logo{
+    width:350px;
+    height: 310px;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 1;
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom:0;
+    margin:auto;
+}
+.logo-title{
+    width:100%;
+    height: 50px;
+    background: #009688;
+    font-size: 18px;
+    text-align:center;
+    line-height: 50px;
+    border-radius:5px 5px 0px 0;
+    color: #fff;
+}
+.logo-centen{
+    width:320px;
+    height: 240px;
+    /* background:red; */
+    margin:0 auto;
+}
+.logo-user{
+    width:100%;
+    height: 45px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    margin-top:10px;
+}
+.logo-img{
+    width:55px;
+    height: 100%;
+    border-right:1px solid #ccc;
+    float: left;
+    text-align:center;
+    line-height: 45px;
+}
+.logo-input{
+    width:247px;
+    background: yellow;
+    height: 100%;
+    float:left;
+}
+.logo-input input{
+    width:100%;
+    height: 43px;
+    text-indent:10px;
+    border:none;
+    line-height: 45px;
+}
+.logo-icon{
+    font-size: 30px;
+    color: #ccc;
+}
+.logo-yzm{
+    width:100%;
+    height: 45px;
+    /* background: red; */
+    margin-top:10px;
+}
+.logo-yzm-noe{
+    width:150px;
+    height: 100%;
+    /* background :ye11llow; */
+    border:1px solid #ccc;
+    border-radius:5px;
+    float: left;
+}
+.yzm-img{
+    background:url('../img/yzm.png') no-repeat center;
+    background-size:35px 32px;
+    cursor:pointer;
+}
+.logo-yzm-input{
+    width:60%;
+    height: 100%;
+    float: left;
+    /*background: red;*/
+}
+.logo-yzm-input input{
+    width:100%;
+    height: 43px;
+    line-height:45px;
+    text-indent:10px;
+    border:none;
+}
+.logo-yzm-tow{
+    width:100px;
+    height: 45px;
+    /*background: red;*/
+    float: left;
+    margin-left: 5px;
+    cursor:pointer;
+}

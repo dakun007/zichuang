@@ -1,0 +1,91 @@
+﻿@charset "utf-8";
+/**/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio,
+video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+    background:transparent;
+}
+html {
+    font-size: 16px;
+}
+/**/
+@media screen and (min-width:375px){
+    html{
+        font-size:calc(100% + 2 * (100vw - 375px)/ 39);
+        font-size:calc(16px + 2 * (100vw - 375px)/ 39)
+    }
+}
+@media screen and (min-width:414px){
+    html{
+        font-size:calc(112.5% + 4 * (100vw - 414px)/ 586);
+        font-size:calc(18px + 4 * (100vw - 414px)/ 586)
+    }
+}
+@media screen and (min-width:600px){
+    html{
+        font-size:calc(125% + 4 * (100vw - 600px)/ 400);
+        font-size:calc(20px + 4 * (100vw - 600px)/ 400)
+    }
+}
+@media screen and (min-width:1000px){
+    html{
+        font-size:calc(137.5% + 6 * (100vw - 1000px)/ 1000);
+        font-size:calc(22px + 6 * (100vw - 1000px)/ 1000)
+    }
+}
+html{
+    scrollbar-base-color: #fff;
+    scrollbar-base-color: #fff;
+    scrollbar-3dlight-color: #fff;
+    scrollbar-highlight-color: #fff;
+    scrollbar-track-color: #fff;
+    scrollbar-arrow-color: #fff;
+    scrollbar-shadow-color: #fff;
+    scrollbar-dark-shadow-color: #fff;
+}
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    -webkit-user-select: none;
+    color: #33373d;
+    fill: currentColor;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+    outline: 0;
+}
+h1, h2, h3, h4, h5, h6, input, select, textarea {
+    font-size: 100%;
+}
+ul,ol{
+    list-style: none;
+    padding: 0;
+}
+em {
+    font-style: normal;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.clearfix:after,.clearfix:before{
+    content: ""; display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    zoom:1;
+}
