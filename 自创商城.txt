@@ -1,0 +1,163 @@
+数据库名称：　zichuan
+表前缀：zi_
+
+
+//静态商品表  
+//页面地址: /index/goods/名称
+//操作地址： goods/index(展示) goods/add(添加)  goods/save(修改)
+数据表： zi_goods
+前缀： go_
+id:  go_id
+名称： go_user
+金额： go_money
+备注： go_bak
+级别（1:父级，2:子级）： go_jibie
+关联（1：父级)： go_guan 
+添加时间： create_time
+修改时间：  update_time
+
+
+//流量表
+数据表： zi_flow
+前缀： fl_
+id: fl_id
+ip:  fl_ip
+ip地区：  fl_adds
+访问时间：  fl_time
+访问的地址：  fl_url
+年： fl_year
+月： fl_month
+日： fl_day
+次数： fl_ency
+
+//PV操作信息 （只保留三个月，展示月，展示日，展示ip点击数量，展示针对ip显示当天操作信息）
+操作页面： pv/yue pv/ri / pv/ip pv/pv_index  注意： 后面要写一个定时清除,只要保留前三月就好了
+
+
+//UV操作信息（展示月，展示日，展示ip）
+操作页面： uv/yue uv/ri uv/ip
+
+
+//网站账号
+数据库： zi_admin
+前缀： ad_
+id: ad_id
+名称： ad_user
+密码： ad_passad
+加密： ad_passad_jia
+权限id: ad_quanuser_id
+添加时间： create_time
+修改时间:  update_time
+
+//订单表
+数据库： zi_order
+前缀：or_
+id: or_id
+产品名：　or_name
+款式：　or_style
+金额：　or_moeny
+数量：　or_number
+用户：　or_user
+电话：　or_tel
+地址：　or_addr
+是否发货（1，发货中，2，确定签收，3，退货,4,未处理,5再联系，6未发货,7待审核）： or_goods
+是否有效（1，有效，2，无效）： or_tive
+添加时间：　create_time
+年： or_year
+月： or_month
+日： or_day
+备注：　or_bak
+ip:  or_ip
+ip地区： or_ip_adds
+订单号： or_order
+产品页面id: or_goods_id 
+
+//最新订单（24小时）
+操作地址： newest/index(展示)   newest/save(修改)   newest/details(详情)  newest/delete_order(删除) 
+
+//全部订单
+操作地址： newest/whole(展示)
+
+//有效订单
+操作地址： newest/tive(展示)
+
+//无效订单
+操作地址： newest/invalid(展示)
+
+//发货中
+操作地址： newest/goods(展示)
+//确定签收
+操作地址： newest/sign(展示)
+//退货
+操作地址： newest/retu(展示)
+//再联系
+操作地址： newest/liax(展示)
+//未发货
+操作地址： newest/delivery(展示)
+//未处理
+操作地址： newest/handle(展示)
+
+//本月金额
+操作地址： newest/yue_money(展示)
+
+//待审核
+操作地址： newest/audited(展示)
+
+//全部金额
+操作地址： money/money_nian(展示年) money/money_yue(展示月) money/money_ri(展示日)
+
+//数据汇总
+操作地址: summary/order(订单汇总)
+
+
+//最近登陆
+数据库: zi_lately
+前缀: la_
+id: la_id
+用户id:  la_admin_id
+添加时间： la_time
+ip:  la_ip
+ip地区: la_ip_adds
+
+
+//跳转页面地址：
+数据库: zi_page
+id: id
+要跳转地址:  want_id
+指向的地址:  point_id
+添加时间:  create_time
+修改时间:  update_time
+备注： remarks
+
+//跳转页面二级域名：
+数据库: zi_level
+id: id
+域名: name
+指向的地址:  point_id
+添加时间:  create_time
+修改时间:  update_time
+备注： remarks
+
+
+//添加权限
+数据库： zi_quan
+操作地址： quan/index(展示)  quan/add(添加) quan/save_bak('修改') quan/delete_bak(删除)
+id: id
+名称： name
+控制器:  kong
+方法: fang
+关联父级(1不用，): guan
+是否为父级(1父级,2子级,3次子级): fuji  
+添加时间:  create_time
+修改时间: update_time
+
+
+//添加权限名称： 
+数据库: zi_quanuser
+操作地址： quanuser/index   quanuser/add   quanuser/save   quanuser/delete
+id: id
+名称: nameuser 
+权限: quan
+添加时间: create_time
+修改时间: update_time
+

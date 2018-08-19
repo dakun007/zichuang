@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<form class="layui-form layui-form-pane" method="post" action="{:url('admin/add')}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="ad_user" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+            <input type="password" name="ad_passad" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择权限</label>
+        <div class="layui-input-block">
+            <select name="ad_quanuser_id" lay-verify="required">
+                <option value=""></option>
+                {volist name="sql" id="ov"}
+                <option value="{$ov['id']}">{$ov['nameuser']}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <button class="layui-btn submit-btn" lay-submit lay-filter="formDemo">立即提交</button>
+</form>
+
+<script src="__PUBLIC__/admin/admin/add.js"></script>
+
+</body>
+</html>

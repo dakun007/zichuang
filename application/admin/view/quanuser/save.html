@@ -1,0 +1,122 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/13　7:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<form class="layui-form  public" action="{:url('save')}" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="user"  required value="{$find['nameuser']}"  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限</label>
+        <div class="layui-input-block">
+            <input type="checkbox" class="quan" {:public_chex($yzm,'')} name="like1[]" lay-filter="primary" lay-skin="primary"  value="0" title="全部" >
+            <br />
+            {volist name="model" id="ov"  key="k"}
+            {if condition="$ov['fuji'] eq 1"}
+            <input type="checkbox" {:public_chex($yzm,$ov['id'])}  class="quan1 fuji{$k}" layui-id="erji{$k+1}" name="like1[]" lay-filter="primary" lay-skin="primary"  value="{$ov['id']}" title="{$ov['name']}">
+            {volist name="model" id="ve" key="xs"}
+            {if condition="($ve['fuji'] eq 2) and ($ve['guan'] eq $ov['id'])"}
+            <div style="margin-left: 30px;" class="thow">
+                <input type="checkbox" {:public_chex($yzm,$ve['id'])} class="quan1 erji{$k+1} siji{$xs} suji_san" layui-fuji="fuji{$k}" layui-id="sanji{$xs}"  name="like1[]" lay-filter="primary" lay-skin="primary"  value="{$ve['id']}" title="{$ve['name']}">
+                {volist name="model" id="ok"}
+                {if condition="($ok['fuji'] eq 3) and ($ok['guan'] eq $ve['id'])"}
+                <input  type="checkbox" {:public_chex($yzm,$ok['id'])} class="quan1 erji{$k+1} sanji{$xs} sijix{$xs}" layui-xu="" layui-fuji="fuji{$k}" layui-ui="sijix{$xs}"  layui-ys="siji{$xs}" name="like1[]" lay-skin="primary" lay-filter="primary"  value="{$ok['id']}" title="{$ok['name']}">
+                {/if}
+                {/volist}
+            </div>
+            {/if}
+            {/volist}
+            <br />
+            {/if}
+            {/volist}
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{$find['id']}" />
+    {:submit()}
+
+</form>
+
+<script>
+    (function(){
+        layui.use(['form', 'layedit', 'laydate'], function() {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+            form.on('checkbox(primary)', function (data) {
+                $id = $(this).prop('checked');
+                $fuji = $(this).attr('layui-fuji');
+
+                if(data.value==0){
+                    if($id==true){
+                        $('.quan1').prop('checked',true);
+                    }else{
+                        $('.quan1').prop('checked',false);
+                    }
+                }
+
+                $thisx = $(this).attr('layui-id');
+                if($thisx!=null){
+                    if($id==true){
+                        $('.'+$thisx).prop('checked',true);
+                    }else{
+                        $('.'+$thisx).prop('checked',false);
+                    }
+                }
+
+                // $suji_san = $('.suji_san').length;
+                //
+                // if($id==true){
+                //     $chan_q = $(this).addClass($suji_san+1);
+                //     $urq = $('.'+$suji_san+1).length;
+                // }else{
+                //     $chan_q = $(this).removeClass($suji_san+1);
+                //     $urq = $('.'+$suji_san+1).length;
+                // }
+                // if($urq>=1){
+                //     $('.'+$fuji).prop('checked',true);
+                // }else{
+                //     $('.'+$fuji).prop('checked',false);
+                // }
+
+
+                $siji = $(this).attr('layui-ui');
+                $siji = $(this).attr('layui-fuji');
+                $ir = $(this).attr('layui-ys');
+                if($siji!=null){
+                    $url = $('.'+$siji).length;
+                    if($id==true){
+                        $chan = $(this).addClass($siji+1);
+                        $ur = $('.'+$siji+1).length;
+                    }else{
+                        $chan = $(this).removeClass($siji+1);
+                        $ur = $('.'+$siji+1).length;
+                    }
+                    if($ur>=1){
+                        // $('.'+$ir).prop('checked',true);
+                        // $('.'+$fuji).prop('checked',true);
+                    }else{
+                        // $('.'+$ir).prop('checked',false);
+                        // $('.'+$fuji).prop('checked',false);
+                    }
+                }
+                form.render();
+            })
+        })
+    })();
+</script>
+
+</body>
+</html>

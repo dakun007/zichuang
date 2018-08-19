@@ -1,0 +1,91 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/10　16:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<!--搜索区域-->
+<div class="public public-ko">
+    <form action="{:url('level/index')}" method="get" class="layui-form layui-form-pane">
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">域名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="user" value="{:input('user')}" id="date" placeholder="输入域名" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+<!--添加-->
+<div class="public">
+    <button class="layui-btn layui-btn-xs add">添加</button>
+</div>
+
+<!--内容-->
+
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>域名</th>
+        <th>指向地址</th>
+        <th>备注</th>
+        <th>添加时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$ov['name']}</td>
+        <td>{$ov['go_user']}</td>
+        <td>{$ov['remarks']}</td>
+        <td>{$ov['create_time']}</td>
+        <td>
+            <a class="layui-btn-xs layui-btn save" layui-id="{:arr_jia($ov['id'])}">修改</a>
+            <a  href="{:url('level/delete_level')}" class="layui-btn-xs layui-btn layui-btn-danger public-del" layui-id="{:arr_jia($ov['id'])}">删除</a>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+<!--分页-->
+{$page}
+
+<script>
+    (function(){
+    //    添加
+        $('.add').click(function(){
+            page_add('','','添加','/admin/level/add.html');
+        });
+
+    //    修改
+        $('.save').click(function(){
+            $this = $(this).attr('layui-id');
+            page_add('','','添加','/admin/level/save.html?id='+$this);
+        });
+
+    //    删除
+        public_del();
+    })();
+</script>
+
+</body>
+</html>

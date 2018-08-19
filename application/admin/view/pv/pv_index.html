@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<!--内容-->
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="200">
+        <col width="">
+        <col width="200">
+        <col width="200">
+        <col width="200">
+        <col width="100">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>ip</th>
+        <th>访问地址</th>
+        <th>IP地区</th>
+        <th>访问时间</th>
+        <th>访问次数</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$ov['fl_ip']}</td>
+        <td>{$ov['fl_url']}</td>
+        <td>{$ov['fl_adds']}</td>
+        <td>{:public_time($ov['fl_time'])}</td>
+        <td><span class="layui-badge">{$ov['fl_ency']}</span></td>
+        <td>
+            <button href="{:url('pv/detele_index')}" class="layui-btn layui-btn-xs layui-btn-danger public-del"
+                    layui-id="{:arr_jia($ov['fl_id'])}">删除
+            </button>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+<!--分页-->
+{$page}
+
+<script>
+    (function(){
+
+        public_del();
+
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/css/logo.css"/>
+</head>
+<body>
+    <form class="layui-form" action="{:url('logo/logo')}" method="post">
+    <div class="logo">
+        <!-- 标题 -->
+        <div class="logo-title">后台管理系统</div>
+        <!-- 内容区 -->
+        <div class="logo-centen">
+            <!-- 用户名称 -->
+            <div class="logo-user">
+                <!-- logo图片 -->
+                <div class="logo-img"><i class="layui-icon logo-icon">&#xe66f;</i></div>
+                <div class="logo-input">
+                    <input type="text" name="user" lay-verify="title" placeholder="请输入用户名称"/>
+                </div>
+            </div>
+            <!-- 密码 -->
+            <div class="logo-user">
+                <!-- logo图片 -->
+                <div class="logo-img"><i class="layui-icon logo-icon">&#xe673;</i></div>
+                <div class="logo-input">
+                    <input type="password" name="pass" lay-verify="pass" placeholder="请输入密码"/>
+                </div>
+
+            </div>
+            <!-- 验证码 -->
+            <div class="logo-yzm">
+                <div class="logo-yzm-noe">
+                    <div class="logo-img">
+                        <i class="layui-icon logo-icon">&#xe679;</i>
+                    </div>
+                    <div class="logo-yzm-input">
+                        <input type="text" name="yzm" lay-verify="yzm" placeholder="验证码" />
+                    </div>
+                </div>
+                <img src="" alt="验证码" onclick="yzm_img('/admin/yzm/index.html')" title="更新验证码" class="logo-yzm-tow">
+            </div>
+            <button class="layui-btn submit-btn" lay-submit="" lay-filter="demo1" title="立即提交">立即提交</button>
+        </div>
+    </div>
+    </form>
+    <script src="__PUBLIC__/admin/js/logo.js"></script>
+    
+
+</body>
+</html>

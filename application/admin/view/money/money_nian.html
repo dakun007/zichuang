@@ -1,0 +1,78 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/8　9:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<!--搜索区域-->
+<div class="public public-ko">
+    <form action="{:url('money/money_nian')}" method="get" class="layui-form layui-form-pane">
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">年份</label>
+            <div class="layui-input-inline">
+                <input type="text" name="user" id="date" value="{:input('user')}" id="date" placeholder="输入年份" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+<!--内容-->
+<table class="layui-table">
+    <colgroup>
+        <col width="150">
+        <col width="">
+        <col width="150">
+        <col width="100">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>年份</th>
+        <th>金额</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$ov['or_year']}</td>
+        <td>{:public_shu($meny,'or_year',$ov['or_year'],'or_moeny')}</td>
+        <td>
+            <a class="layui-btn-xs layui-btn save" layui-id="{:arr_jia($ov['or_year'])}">查看月份</a>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+<!--分页-->
+{$page}
+
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function() {
+        var form = layui.form
+            , layer = layui.layer
+            , layedit = layui.layedit
+            , laydate = layui.laydate;
+        //年份
+        laydate.render({
+            elem: '#date',
+            type: 'year'
+        });
+    //    查看月份
+        $('.save').click(function(){
+            $this = $(this).attr('layui-id');
+            page_add('','','查看月份','/admin/money/money_yue.html?id='+$this);
+        });
+    })
+</script>
+
+</body>
+</html>

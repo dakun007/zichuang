@@ -1,0 +1,54 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/10　16:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+
+<form class="layui-form layui-form-pane" method="post" action="{:url('page/save')}">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">跳转地址</label>
+        <div class="layui-input-block">
+            <select name="want_id" required lay-verify="required">
+                <option value=""></option>
+                {volist name="list" id="vo"}
+                <option value="{$vo['go_id']}" {$find['want_id']==$vo['go_id']?'selected':''}>{$vo['go_user']} (备注： {$vo['go_bak']})</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">指向地址</label>
+        <div class="layui-input-block">
+            <select name="point_id" required lay-verify="required">
+                <option value=""></option>
+                {volist name="list" id="ye"}
+                <option value="{$ye['go_id']}" {$find['point_id']==$ye['go_id']?'selected':''} >{$ye['go_user']} (备注： {$vo['go_bak']})</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <input type="text" name="remarks" value="{$find['remarks']}" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{$find['id']}" />
+    {:submit()}
+
+</form>
+
+<script src="__PUBLIC__/admin/page/add.js"></script>
+
+
+</body>
+</html>

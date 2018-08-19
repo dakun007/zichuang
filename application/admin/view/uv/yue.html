@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<div class="public">
+    <form action="{:url('uv/yue')}" method="get" class="layui-form layui-form-pane">
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">月份</label>
+            <div class="layui-input-inline">
+                <input type="text" name="yue" value="{:input('yue')}" id="test3" placeholder="请输入月份" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+<!--内容-->
+
+<table class="layui-table">
+    <colgroup>
+        <col width="80">
+        <col width="">
+        <col width="200">
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>序列</th>
+        <th>月份</th>
+        <th>数量</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="ov"}
+    <tr>
+        <td>{$key+1}</td>
+        <td>{$ov['fl_month']}</td>
+        <td>
+            {:public_uv($sel,$ov['fl_month'],'fl_ip','fl_month')}
+        </td>
+        <td>
+            <button class="layui-btn layui-btn-xs save" layui-id="{:arr_jia($ov['fl_month'])}">查看日期详情</button>
+            <button href="{:url('uv/delete_yue')}" class="layui-btn layui-btn-xs layui-btn-danger public-del"
+                    layui-id="{:arr_jia($ov['fl_month'])}">删除
+            </button>
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+
+<!--分页-->
+{$page}
+
+<script>
+    (function(){
+        layui.use('form',function(){
+            var form = layui.fomr;
+            //删除
+            public_del();
+        // 查看日期
+            $('.save').click(function(){
+                $this = $(this).attr('layui-id');
+                page_add('','','日期详情','/admin/uv/ri.html?id='+$this);
+            });
+        });
+    })();
+</script>
+
+</body>
+</html>

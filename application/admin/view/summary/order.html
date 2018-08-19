@@ -1,0 +1,111 @@
+<!--
+    技术员：吴坤盛
+    创建时间：2018/8/17　22:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+
+<!--搜索-->
+<div class="public public-ko">
+    <form action="{:url()}" method="get" class="layui-form layui-form-pane">
+
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="kaishi" id='tive1' value="{:input('kaishi')}"  placeholder="输入开始时间" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">结束时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="jieshi" id='tive' value="{:input('jieshi')}" placeholder="输入结束时间" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <input class="layui-btn publi-left" value="搜索" type="submit"/>
+    </form>
+</div>
+
+
+<table class="layui-table">
+    <colgroup>
+        <col width="200">
+        <col width="200">
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>订单状态</th>
+        <th>订单数</th>
+        <th>订单金额</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>未处理</td>
+        <td>{:public_summatr($sql,'or_goods',4,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',4,'or_tive',1,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>再联系</td>
+        <td>{:public_summatr($sql,'or_goods',5,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',5,'or_tive',1,'or_moeny')}</td>
+    </tr>
+
+    <tr>
+        <td>未发货</td>
+        <td>{:public_summatr($sql,'or_goods',6,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',6,'or_tive',1,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>待审核</td>
+        <td>{:public_summatr($sql,'or_goods',7,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',7,'or_tive',1,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>发货中</td>
+        <td>{:public_summatr($sql,'or_goods',1,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',1,'or_tive',1,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>签收</td>
+        <td>{:public_summatr($sql,'or_goods',2,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',2,'or_tive',1,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>退货</td>
+        <td>{:public_summatr($sql,'or_goods',3,'or_tive',1)}</td>
+        <td>{:public_jine_summ($sql,'or_goods',3,'or_tive',1,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>无效单</td>
+        <td>{:public_summect($sql,'or_tive',2)}</td>
+        <td>{:public_summect_jine($sql,'or_tive',2,'or_moeny')}</td>
+    </tr>
+    <tr>
+        <td>有效订单</td>
+        <td>{$str}</td>
+        <td>{$str_num}</td>
+    </tr>
+    <tr>
+        <td>汇总</td>
+        <td>{:count($sql)}</td>
+        <td>{:public_jie($sql,'or_moeny')}</td>
+    </tr>
+
+
+
+    </tbody>
+</table>
+
+
+<script src="__PUBLIC__/admin/newest/index.js"></script>
+
+</body>
+</html>
