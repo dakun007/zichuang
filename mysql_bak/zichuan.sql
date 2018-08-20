@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
+Source Server         : 本地链接
 Source Server Version : 50553
 Source Host           : 127.0.0.1:3306
 Source Database       : zichuan
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-08-20 09:44:08
+Date: 2018-08-20 18:11:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -64,7 +64,7 @@ CREATE TABLE `zi_flow` (
 INSERT INTO `zi_flow` VALUES ('46', '127.0.0.1', '无法获取', '1534430054', '/index/index/index.html', '2018', '08', '1534348800', '9');
 INSERT INTO `zi_flow` VALUES ('47', '127.0.0.1', '无法获取', '1534432251', '/index/index/aa.html', '2018', '08', '1534348800', '20');
 INSERT INTO `zi_flow` VALUES ('48', '127.0.0.1', '无法获取', '1534595761', '/index/goods/network.html', '2018', '08', '1534521600', '5');
-INSERT INTO `zi_flow` VALUES ('49', '127.0.0.1', '无法获取', '1534729326', '/index/index/index.html', '2018', '08', '1534694400', '3');
+INSERT INTO `zi_flow` VALUES ('49', '127.0.0.1', '无法获取', '1534729326', '/index/index/index.html', '2018', '08', '1534694400', '4');
 
 -- ----------------------------
 -- Table structure for zi_goods
@@ -103,7 +103,7 @@ CREATE TABLE `zi_lately` (
   `la_ip` varchar(255) DEFAULT NULL,
   `la_ip_adds` varchar(255) NOT NULL,
   PRIMARY KEY (`la_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zi_lately
@@ -136,6 +136,8 @@ INSERT INTO `zi_lately` VALUES ('25', '4', '1534517515', null, '');
 INSERT INTO `zi_lately` VALUES ('26', '4', '1534523461', null, '');
 INSERT INTO `zi_lately` VALUES ('27', '4', '1534558262', null, '');
 INSERT INTO `zi_lately` VALUES ('28', '4', '1534729342', '127.0.0.1', 'XXXX内网IP');
+INSERT INTO `zi_lately` VALUES ('29', '4', '1534730223', null, '');
+INSERT INTO `zi_lately` VALUES ('30', '4', '1534754851', null, '');
 
 -- ----------------------------
 -- Table structure for zi_level
@@ -181,31 +183,31 @@ CREATE TABLE `zi_order` (
   `or_ip_adds` varchar(255) DEFAULT NULL,
   `or_order` varchar(255) DEFAULT NULL,
   `or_goods_id` int(32) DEFAULT NULL,
+  `update_time` int(32) DEFAULT NULL,
   PRIMARY KEY (`or_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zi_order
 -- ----------------------------
-INSERT INTO `zi_order` VALUES ('9', '苹果iPhone 8 Plus256G', '金色', '899', '1', '吴坤盛', '13760740438', '广东省-广州市-天河区，贮存', '4', '1', '1533769769', null, '2018', '08', '1533744000', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('10', '苹果iPhone 8 Plus 256G', '银色', '899', '1', '吴坤盛', '1376070438', '福建省-福州市-长乐市，1211', '4', '1', '1533771634', null, '2018', '08', '1533744000', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('11', '苹果iPhone 8 Plus 256G', '红色', '899', '1', '吴坤盛', '13760740438', '湖南省-长沙市-市辖区，123', '4', '1', '1533783072', null, '2018', '08', '1533744000', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('12', '全网通4G手机 双卡双待手机', '蓝色', '899', '1', 'admin', '13113985742', '123', '2', '1', '1533853660', '', '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', '2656', '70');
-INSERT INTO `zi_order` VALUES ('13', '全网通4G手机 双卡双待手机', '黑色', '999', '1', 'admin', '13113985742', '123', '4', '1', '1533854493', null, '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', null, '71');
-INSERT INTO `zi_order` VALUES ('14', '苹果iPhone 8 Plus 256G', '金色', '899', '1', '吴坤盛', '13113985742', '福建省-福州市-市辖区，1231', '4', '1', '1533856564', null, '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('15', '苹果iPhone 8 Plus 256G', '金色', '899', '1', '无尽', '13113985742', '广东省-广州市-从化市，12311', '4', '2', '1533856630', '', '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', '', '69');
-INSERT INTO `zi_order` VALUES ('16', '苹果Apple iPhone X 256G', '银色', '899', '1', 'admin', '13113985742', '河北省-石家庄市-桥东区，123', '4', '1', '1534152208', null, '2018', '08', '1534089600', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('18', '苹果iPhone 8 Plus 256G', '金色', '899', '1', 'admin', '13113985742', '湖南省-株洲市-荷塘区，123', '5', '1', '1534345514', '', '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', '', '69');
-INSERT INTO `zi_order` VALUES ('19', '苹果iPhone 8 Plus 256G', '金色', '899', '1', 'admin', '13113985742', '广东省-潮州市-市辖区，12123', '4', '1', '1534347090', null, '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('20', '苹果iPhone 8 Plus 256G', '红色', '899', '1', 'admin', '13113985742', '湖南省-长沙市-市辖区，22', '4', '1', '1534347216', null, '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('21', '苹果iPhone 8 Plus 256G', '银色', '899', '1', 'admin', '13113985742', '湖南省-湘潭市-市辖区，23', '4', '1', '1534347257', null, '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', null, '69');
-INSERT INTO `zi_order` VALUES ('22', '苹果iPhone 8 Plus 256G', '红色', '899', '1', 'admin', '13113985742', '广东省-揭阳市-榕城区，231', '3', '1', '1534347490', '', '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', '', '69');
-INSERT INTO `zi_order` VALUES ('23', '苹果iPhone 8 Plus 256G', '红色', '899', '1', 'admin', '13113985742', '广东省-广州市-荔湾区，1212123', '4', '1', '1534347608', null, '2018', '08', '1534262400', '127.0.0.1', '无法获取', null, '69');
-INSERT INTO `zi_order` VALUES ('24', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '湖南省-长沙市-天心区，23123', '4', '1', '1534347663', null, '2018', '08', '1534262400', '127.0.0.1', '无法获取', null, '69');
-INSERT INTO `zi_order` VALUES ('25', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '湖南省-长沙市-天心区，23123', '4', '1', '1534347679', null, '2018', '08', '1534262400', '127.0.0.1', '无法获取', null, '69');
-INSERT INTO `zi_order` VALUES ('70', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '天津市-市辖区-和平区，12321321321', '6', '1', '1534430424', '', '2018', '08', '1534348800', '127.0.0.1', '无法获取', '', '69');
-INSERT INTO `zi_order` VALUES ('71', '苹果iPhone 8 Plus 256G', '金色', '899', '1', 'admin', '13113985742', '安徽省-合肥市-市辖区，12312', '1', '1', '1534433118', '', '2018', '08', '1534348800', '127.0.0.1', '保留地址', '123', '69');
-INSERT INTO `zi_order` VALUES ('72', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '广东省-广州市-市辖区，23', '4', '1', '1534729389', null, '2018', '08', '1534694400', '127.0.0.1', '保留地址', null, '69');
+INSERT INTO `zi_order` VALUES ('9', '苹果iPhone 8 Plus256G', '金色', '899', '1', '吴坤盛', '13760740438', '广东省-广州市-天河区，贮存', '4', '1', '1533769769', null, '2018', '08', '1533744000', '127.0.0.1', 'XXXX内网IP', null, '69', null);
+INSERT INTO `zi_order` VALUES ('10', '苹果iPhone 8 Plus 256G', '银色', '899', '1', '吴坤盛', '1376070438', '福建省-福州市-长乐市，1211', '4', '1', '1533771634', null, '2018', '08', '1533744000', '127.0.0.1', 'XXXX内网IP', null, '69', null);
+INSERT INTO `zi_order` VALUES ('11', '苹果iPhone 8 Plus 256G', '红色', '899', '1', '吴坤盛', '13760740438', '湖南省-长沙市-市辖区，123', '4', '1', '1533783072', null, '2018', '08', '1533744000', '127.0.0.1', 'XXXX内网IP', null, '69', null);
+INSERT INTO `zi_order` VALUES ('12', '全网通4G手机 双卡双待手机', '蓝色', '899', '1', 'admin', '13113985742', '123', '2', '1', '1533853660', '', '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', '2656', '70', null);
+INSERT INTO `zi_order` VALUES ('13', '全网通4G手机 双卡双待手机', '黑色', '999', '1', 'admin', '13113985742', '123', '4', '1', '1533854493', null, '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', null, '71', null);
+INSERT INTO `zi_order` VALUES ('14', '苹果iPhone 8 Plus 256G', '金色', '899', '1', '吴坤盛', '13113985742', '福建省-福州市-市辖区，1231', '4', '1', '1533856564', null, '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', null, '69', null);
+INSERT INTO `zi_order` VALUES ('15', '苹果iPhone 8 Plus 256G', '金色', '899', '1', '无尽', '13113985742', '广东省-广州市-从化市，12311', '4', '2', '1533856630', '', '2018', '08', '1533830400', '127.0.0.1', 'XXXX内网IP', '', '69', null);
+INSERT INTO `zi_order` VALUES ('16', '苹果Apple iPhone X 256G', '银色', '899', '1', 'admin', '13113985742', '河北省-石家庄市-桥东区，123', '4', '1', '1534152208', null, '2018', '08', '1534089600', '127.0.0.1', 'XXXX内网IP', null, '69', null);
+INSERT INTO `zi_order` VALUES ('18', '苹果iPhone 8 Plus 256G', '金色', '899', '1', 'admin', '13113985742', '湖南省-株洲市-荷塘区，123', '5', '1', '1534345514', '', '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', '', '69', null);
+INSERT INTO `zi_order` VALUES ('19', '苹果iPhone 8 Plus 256G', '金色', '899', '1', 'admin', '13113985742', '广东省-潮州市-市辖区，12123', '8', '1', '1534347090', '', '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', '13123123123123123123123123', '69', null);
+INSERT INTO `zi_order` VALUES ('20', '苹果iPhone 8 Plus 256G', '红色', '899', '1', 'admin', '13113985742', '湖南省-长沙市-市辖区，22', '6', '1', '1534347216', '', '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', '123123', '69', '1534758140');
+INSERT INTO `zi_order` VALUES ('21', '苹果iPhone 8 Plus 256G', '银色', '899', '1', 'admin', '13113985742', '湖南省-湘潭市-市辖区，23', '4', '1', '1534347257', null, '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', null, '69', null);
+INSERT INTO `zi_order` VALUES ('22', '苹果iPhone 8 Plus 256G', '红色', '899', '1', 'admin', '13113985742', '广东省-揭阳市-榕城区，231', '3', '1', '1534347490', '', '2018', '08', '1534262400', '127.0.0.1', 'XXXX内网IP', '123123123123213123123', '69', null);
+INSERT INTO `zi_order` VALUES ('23', '苹果iPhone 8 Plus 256G', '红色', '899', '1', 'admin', '13113985742', '广东省-广州市-荔湾区，1212123', '4', '1', '1534347608', '', '2018', '08', '1534262400', '127.0.0.1', '无法获取', '', '69', '1534756951');
+INSERT INTO `zi_order` VALUES ('24', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '湖南省-长沙市-天心区，23123', '4', '1', '1534347663', null, '2018', '08', '1534262400', '127.0.0.1', '无法获取', null, '69', null);
+INSERT INTO `zi_order` VALUES ('70', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '天津市-市辖区-和平区，12321321321', '3', '1', '1534430424', '', '2018', '08', '1534348800', '127.0.0.1', '无法获取', '', '69', '1534756919');
+INSERT INTO `zi_order` VALUES ('71', '苹果iPhone 8 Plus 256G', '金色', '899', '1', 'admin', '13113985742', '安徽省-合肥市-市辖区，12312', '9', '1', '1534433118', '', '2018', '08', '1534348800', '127.0.0.1', '保留地址', '123', '69', '1534758645');
+INSERT INTO `zi_order` VALUES ('72', '苹果iPhone 8 Plus 256G', '黑色', '899', '1', 'admin', '13113985742', '广东省-广州市-市辖区，23', '9', '1', '1534729389', '', '2018', '08', '1534694400', '127.0.0.1', '保留地址', '1231231313123', '69', '1534758630');
 
 -- ----------------------------
 -- Table structure for zi_page
@@ -240,7 +242,7 @@ CREATE TABLE `zi_quan` (
   `update_time` int(32) DEFAULT NULL,
   `guan` int(32) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zi_quan
@@ -304,6 +306,8 @@ INSERT INTO `zi_quan` VALUES ('73', '未处理', 'newest', 'handle', '2', '15343
 INSERT INTO `zi_quan` VALUES ('74', '数据汇总', null, null, '1', '1534517888', '1534517888', '1');
 INSERT INTO `zi_quan` VALUES ('75', '订单汇总', 'summary', 'order', '2', '1534517928', '1534518097', '74');
 INSERT INTO `zi_quan` VALUES ('76', '待审核', 'newest', 'audited', '2', '1534563183', '1534563183', '11');
+INSERT INTO `zi_quan` VALUES ('77', '垃圾单', 'newest', 'garbage', '2', '1534734740', '1534734740', '11');
+INSERT INTO `zi_quan` VALUES ('78', '拒收', 'newest', 'tion', '2', '1534754948', '1534757307', '11');
 
 -- ----------------------------
 -- Table structure for zi_quanuser
