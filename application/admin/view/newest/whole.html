@@ -50,13 +50,21 @@
                        class="layui-input">
             </div>
         </div>
+
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">订单号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="numbers" value="{:input('numbers')}" placeholder="输入订单号" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
     
         <div class="layui-form-item publi-left" style="padding-right: 10px;">
             <label class="layui-form-label">订单状态</label>
                 <div class="layui-input-block" style="border:#e6e6e6 solid 1px;height: 38px;">
                     <input type="radio" name="key" {:input('key')==0?'checked':''} value="0" title="全部" checked>
-                    <!-- <input type="radio" name="key" {:input('key')==1?'checked':''} value="1" title="发货">
-                    <input type="radio" name="key" {:input('key')==2?'checked':''} value="2" title="确定签收" >
+                     <input type="radio" name="key" {:input('key')==1?'checked':''} value="1" title="发货">
+                    <!--<input type="radio" name="key" {:input('key')==2?'checked':''} value="2" title="确定签收" >
                     <input type="radio" name="key" {:input('key')==3?'checked':''} value="3" title="退货" > -->
                     <input type="radio" name="key" {:input('key')==4?'checked':''} value="4" title="未处理" >
                     <input type="radio" name="key" {:input('key')==5?'checked':''} value="5" title="再联系" >
@@ -64,13 +72,15 @@
                 </div>
         </div>
 
+        
+
         <input class="layui-btn publi-left" value="搜索" type="submit"/>
     </form>
 </div>
 
 <!-- 操作 -->
 <div class="public">
-    <a href="{:url('Excel/Excel_order',['jieshi'=>input('jieshi'),'kaishi'=>input('kaishi'),'sex'=>input('sex')==0?500:input('sex'),'key'=>input('key')])}" class="layui-btn layui-btn-xs Excel">下载Excel</a>
+    <a href="{:url('Excel/Excel_order',['jieshi'=>input('jieshi'),'kaishi'=>input('kaishi'),'sex'=>input('sex')==0?500:input('sex'),'key'=>input('key'),'numbers'=>input('numbers')])}" class="layui-btn layui-btn-xs Excel">下载Excel</a>
 </div>
 
 <!--内容-->

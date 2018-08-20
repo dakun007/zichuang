@@ -286,7 +286,7 @@ function goods_fahuo($data=''){
         return '<span class="layui-badge layui-bg-blue">已发货</span>';
     }else if($data == 3){
         return '<span class="layui-badge layui-bg-gray">已确定退货</span>';
-    }else if($data == 2){
+    }else if($data == 2){   
         return '<span class="layui-badge layui-bg-blue">已确定签收</span>';
     }else if($data == 5){
         return '<span class="layui-badge">再联系</span>';
@@ -294,6 +294,8 @@ function goods_fahuo($data=''){
         return '<span class="layui-badge">未发货</span>';
     }else if($data == 7){
         return '<span class="layui-badge">待审核</span>';
+    }else if($data == 8){
+        return '<span class="layui-badge">垃圾单</span>';
     }
 }
 

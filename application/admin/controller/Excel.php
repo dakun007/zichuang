@@ -25,9 +25,14 @@ class Excel extends Controller{
         $where = [] ;
         $sex = input('sex');
         $key = input('key');
+        $numbers = input('numbers');  //垃圾单
 
         if($key){
             $where['or_goods'] = ['eq',$key];
+        }
+
+        if ($numbers) {
+            $where['or_order'] = ['like',"%$numbers%"];
         }
 
         if ($sex != 500) {
@@ -63,7 +68,12 @@ class Excel extends Controller{
                 $xlsData[$k]['or_goods'] = '再联系';
             }else if($v['or_goods']==6){
                 $xlsData[$k]['or_goods'] = '未发货';
+            }else if($v['or_goods']==7){
+                $xlsData[$k]['or_goods'] = '待审核';
+            }else if($v['or_goods']==8){
+                $xlsData[$k]['or_goods'] = '垃圾';
             }
+
             if($v['or_tive']==1){
                 $xlsData[$k]['or_tive'] = '有效';
             }else{

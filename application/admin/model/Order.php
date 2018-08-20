@@ -17,6 +17,7 @@ class Order extends Model{
         $sex = input('sex'); //是否有效
         $tel = input('tel'); //手机号码
         $key = input('key'); //订单状态
+        $numbers = input('numbers'); //订单号
         $kaishi = strtotime(input('kaishi')); //开始时间
         $jieshi = input('jieshi'); //结束时间
 
@@ -42,6 +43,10 @@ class Order extends Model{
 
         if($key){
             $where['or_goods'] = ['eq',$key];
+        }
+        
+        if ($numbers) {
+            $where['or_order'] = ['like',"%$numbers%"];
         }
         
         
