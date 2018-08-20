@@ -52,7 +52,7 @@ class Order extends Model{
         
         $list = Order::where($where)->where($ax)->order('or_id desc')->field('b.create_time as create_t,a.*,b.go_user')->alias('a')->join('__GOODS__ b','a.or_goods_id = b.go_id')->paginate(10,false,['query'=>['user'=>$user,'id'=>input('id'),'nian'=>input('nian')]]);
         $page = $list->render();
-        $meny = $this->where($where)->where($ax)->select();
+        $meny = $this->where($where)->where($ax)->alias('a')->select();
         return [
             'list' => $list,
             'page' => $page,

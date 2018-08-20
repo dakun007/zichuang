@@ -296,6 +296,8 @@ function goods_fahuo($data=''){
         return '<span class="layui-badge">待审核</span>';
     }else if($data == 8){
         return '<span class="layui-badge">垃圾单</span>';
+    }else if($data == 9){
+        return '<span class="layui-badge">拒收</span>';
     }
 }
 

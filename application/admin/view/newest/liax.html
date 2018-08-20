@@ -11,7 +11,7 @@
 
 <!--搜索区域-->
 <div class="public public-ko">
-    <form action="{:url('newest/sign')}" method="get" class="layui-form layui-form-pane">
+    <form action="{:url('newest/liax')}" method="get" class="layui-form layui-form-pane">
         <div class="layui-form-item publi-left">
             <label class="layui-form-label">产品名</label>
             <div class="layui-input-inline">
@@ -19,6 +19,22 @@
                        class="layui-input">
             </div>
         </div>
+
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="kaishi" id='tive1' value="{:input('kaishi')}"  placeholder="输入开始时间" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item publi-left">
+            <label class="layui-form-label">结束时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="jieshi" id='tive' value="{:input('jieshi')}" placeholder="输入结束时间" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+
         <input class="layui-btn publi-left" value="搜索" type="submit"/>
     </form>
 </div>

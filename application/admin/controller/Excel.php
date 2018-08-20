@@ -72,6 +72,8 @@ class Excel extends Controller{
                 $xlsData[$k]['or_goods'] = '待审核';
             }else if($v['or_goods']==8){
                 $xlsData[$k]['or_goods'] = '垃圾';
+            }else if($v['or_goods']==9){
+                $xlsData[$k]['or_goods'] = '拒收';
             }
 
             if($v['or_tive']==1){

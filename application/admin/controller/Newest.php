@@ -212,6 +212,20 @@ class Newest extends Ro{
         return view();
     }
 
+    // 展示拒收
+    public function tion()
+    {
+        $yzm['or_tive'] = ['eq',1];
+        $yzm['or_goods'] = ['eq',9];
+        $model = \think\Loader::model('order')->index($yzm);
+        $this->assign([
+            'list' => $model['list'],
+            'page' => $model['page'],
+            'meny' => $model['meny'],
+        ]);
+        return view();
+    }
+
 //    展示本月金额
     public function  yue_money(){
         $ri = yue(); //获取今天时间戳
