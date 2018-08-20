@@ -10,6 +10,8 @@ namespace app\admin\model;
 use think\Model;
 class Order extends Model{
 
+    protected $autoWriteTimestamp = true;
+
 //    展示
     public function index($where=array(),$ax = []){
 

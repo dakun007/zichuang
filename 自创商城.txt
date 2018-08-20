@@ -63,6 +63,7 @@ id: or_id
 是否发货（1，发货中，2，确定签收，3，退货,4,未处理,5再联系，6未发货,7待审核,8垃圾单,9拒收）： or_goods
 是否有效（1，有效，2，无效）： or_tive
 添加时间：　create_time
+添加时间: update_time
 年： or_year
 月： or_month
 日： or_day
@@ -104,10 +105,10 @@ ip地区： or_ip_adds
 操作地址： newest/audited(展示)
 
 //垃圾单
-操作地址： newest/tion(展示)
+操作地址： newest/garbage(展示)
 
 //拒收
-操作地址： newest/garbage(展示)
+操作地址： newest/tion(展示)
 
 //全部金额
 操作地址： money/money_nian(展示年) money/money_yue(展示月) money/money_ri(展示日)

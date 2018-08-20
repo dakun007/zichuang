@@ -33,6 +33,7 @@
         <col width="150">
         <col width="100">
         <col width="200">
+        <col width="200">
         <col width="100">
     </colgroup>
     <thead>
@@ -44,6 +45,7 @@
         <th>订单状态</th>
         <th>是否有效</th>
         <th>添加时间</th>
+        <th>修改时间</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -58,6 +60,7 @@
         <td>{:goods_fahuo($vo['or_goods'])}</td>
         <td>{:goods_zhuan($vo['or_tive'])}</td>
         <td>{$vo['create_time']}</td>
+        <td>{$vo['update_time']!='1970-01-01 08:00:00'?$vo['update_time']:''}</td>
         <td>
             <a class="layui-btn-xs layui-btn yulan" href="/index/goods/{$vo['go_user']}.html">预览页面</a>
         </td>

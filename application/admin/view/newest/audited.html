@@ -11,7 +11,7 @@
 
 <!--搜索区域-->
 <div class="public public-ko">
-    <form action="{:url('newest/sign')}" method="get" class="layui-form layui-form-pane">
+    <form action="{:url('newest/audited')}" method="get" class="layui-form layui-form-pane">
         <div class="layui-form-item publi-left">
             <label class="layui-form-label">产品名</label>
             <div class="layui-input-inline">
@@ -34,6 +34,7 @@
         <col width="100">
         <col width="200">
         <col width="200">
+        <col width="200">
     </colgroup>
     <thead>
     <tr>
@@ -44,6 +45,7 @@
         <th>订单状态</th>
         <th>是否有效</th>
         <th>添加时间</th>
+        <th>修改时间</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -58,6 +60,7 @@
         <td>{:goods_fahuo($vo['or_goods'])}</td>
         <td>{:goods_zhuan($vo['or_tive'])}</td>
         <td>{$vo['create_time']}</td>
+        <td>{$vo['update_time']!='1970-01-01 08:00:00'?$vo['update_time']:''}</td>
         <td>
             <!--<a class="layui-btn-xs layui-btn">详情</a>-->
             <a class="layui-btn-xs layui-btn save" layui-id="{:arr_jia($vo['or_id'])}">修改</a>
