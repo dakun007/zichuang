@@ -167,8 +167,8 @@ function ip(){
     curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
     curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
-    curl_setopt ($ch, CURLOPT_TIMEOUT, 2); 
-    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,2); 
+    curl_setopt ($ch, CURLOPT_TIMEOUT, 1); 
+    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,1); 
     $dxycontent = curl_exec($ch); 
     
     // $result = file_get_contents($url);
@@ -186,8 +186,8 @@ function ip138()
     curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
     curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
-    curl_setopt ($ch, CURLOPT_TIMEOUT, 2); 
-    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,2); 
+    curl_setopt ($ch, CURLOPT_TIMEOUT, 1); 
+    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,1); 
     $dxycontent = curl_exec($ch); 
     
     // $result = file_get_contents($url);
