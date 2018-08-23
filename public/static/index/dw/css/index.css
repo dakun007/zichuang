@@ -1,0 +1,333 @@
+/* 
+    技术员：大坤
+*/
+
+.index
+{
+    width:480px;
+    background: #fff;
+    position: relative;
+    margin:0 auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.public::after
+{ 
+    content:"";
+    display:table;
+    clear:both;
+}
+
+/* 轮播图 */
+.swiper-container
+{
+    height: 480px;
+}
+.swiper-slide
+{
+    background:#eee;
+}
+
+/* 按钮 */
+.index-buy
+{
+    width:480px;
+    height: 4rem;
+    background: #e4393c;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align:center;
+    line-height: 4rem;
+    cursor: pointer;
+    position:fixed;
+    bottom:0;
+    display: inline;
+}
+
+/* 名称 */
+.index-name
+{
+    padding:.9rem;
+    font-size: 1rem;
+    /* background:red; */
+    border-bottom:1px solid #eee;
+}
+.index-name-vice
+{
+    background:red;
+    padding:2px 5px;
+    color: #fff;
+    border-radius: 3px;
+}
+.index-name-title{
+    padding-left:5px;
+}
+.index-name-yuan{
+    font-size: 1rem;
+    color: rgb(114, 114, 114);
+    text-decoration: line-through;
+    padding-left: 10px;
+}
+.index-name-xian{
+    font-size: 1.5rem;
+    color: #e4393c;
+}
+.index-name-ren{
+    /* font-size: 1.3rem; */
+}
+.index-miao{
+    text-align: center;
+    padding:15px;
+    background: #e4393c;
+    font-size: 1.3rem;
+    color: yellow;
+}
+.index-miao span{
+    padding: 5px;
+    background: #930c0c;
+    margin-left:10px;
+    border-radius: 5px;
+    color: #fff;
+}
+.index-miao-hao{
+    font-size: 1rem;
+}
+
+.index-yes{
+    font-size: .85rem;
+    overflow: hidden;
+}
+
+.index-right{
+    float: right;
+}
+
+.index-right-jindutiao{
+    display: block;
+    width: 251px;
+    height: 1.1rem;
+    padding: 0.0625rem;
+    margin-top:0px;
+    margin-left:10px;
+    border: 0.0625rem solid #f00;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0.625rem;
+    float: right;
+    overflow: hidden;
+}
+
+.index-right-jindutiao-bak{
+    width:0%;
+    height: 100%;
+    background: #e4393c;
+    display: block;
+    border-radius: 10px;
+    font-size: .65rem;
+    color: #fff;
+    text-align: center;
+    line-height:.9rem;
+}
+.index-right-jindutiao-bak-left{
+    padding-right: 3px;
+    float: right;
+}
+#scrollBox{height:100px;width:300px;margin:0 auto;background:#fff;overflow:hidden;}
+#scrollBox #con1,#con2{width:280px;float:left;}
+#scrollBox li{height:15px;line-height:15px;text-align:center;margin-top:10px;}
+
+.index-kuan{
+    background: #e4393c;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.index-imgx{
+    height: 8rem;
+    /* background: red; */
+}
+
+.index-img{
+    width:8rem;
+    height: 100%;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+}
+.index-imgx-text{
+    float:left;
+    margin-left:10px;
+    font-size: 1rem;
+    position: relative;
+    height:100%;
+}
+.index-imgx-text p{
+    padding-bottom:10px;
+}
+.index-imgx-p{
+    position: absolute;
+    bottom:0;
+}
+.index-imgx-text-red{
+    color: #e4393c;
+    font-weight: bold;
+}
+.index-imgx-p .index-imgx-px{
+    color: rgb(119, 119, 119);
+}
+.index-cicun{
+    padding:8px 20px;
+    border:1px solid #bfbfbf;
+    margin-left:10px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius:0.25rem;
+}
+.index-cicun-red{
+    border:1px solid #e4393c;
+    color: #e4393c;
+}
+.index-user{
+    width:100%;
+    height: 2.5rem;
+    /* background: red; */
+    font-size: 1rem;
+    margin-bottom:5px;
+}
+.index-user span{
+    width:21%;
+    float: left;
+    line-height: 1.875rem;
+    text-align: center;
+    color: #81838e;
+    display: block;
+    height: 100%;
+}
+.index-user input{
+    float:left;
+    height: 2rem;
+    margin-top:2px;
+    margin-left:5px;
+    width:75%;
+    border:1px solid #81838e;
+    border-radius: 3px;
+    outline:none; 
+    padding-left:10px;
+    font-size: 1rem;
+}
+
+.public::after{
+    content:"";
+    display:table;
+    clear:both;
+}
+
+.index-ko{
+    width:100%;
+    height: 4rem;
+}
+
+.index-textarea{
+    height: 5rem;
+}
+.index-user textarea{
+    float:left;
+    height: 5rem;
+    margin-top:2px;
+    margin-left:5px;
+    width:75%;
+    border:1px solid #81838e;
+    border-radius: 3px;
+    outline:none; 
+    padding-left:10px;
+    font-size: 1rem;
+}
+
+.index-submit{
+    display: block;
+    width: 9.375rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #ffffff;
+    background-color: #f23030;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.9375rem;
+    border-radius: 0.1875rem;
+    cursor: pointer;
+    margin-top:30px;
+}
+.index-goods img{
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width:414px){
+    .index,.swiper-container,.index-buy{
+        width:100%;
+    }
+    .index-img{
+        width:32%;
+    }
+    .index-imgx-text{
+        width:60%;
+    }
+    .index-right-jindutiao{
+        width:13rem;
+    }
+    .index-name-xian{
+        font-size: 1.3rem;
+    }
+    .index-name{
+        font-size: 0.9rem;
+    }
+    .index-user input,.index-user textarea{
+        width:74%;
+    }
+    .index-kuan{
+        font-size: 1.2rem;
+    }
+    .index-miao{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width:375px){
+    .index-right-jindutiao{
+        width: 10rem;
+    }
+}
+
+@media (max-width:320px){
+    .index-right-jindutiao{
+        width: 8rem;
+    }
+    .index-miao{
+        font-size: 1rem;    
+    }
+    .index-miao-hao{
+        font-size: 0.8rem;
+    }
+    .index-img{
+        height: 85%;
+    }
+    .index-cicun{
+        padding:6px 14px;
+    }
+    .index-user input, .index-user textarea{
+        width:72%;
+    }
+    .index-user span{
+        font-size: 0.8rem;
+    }
+}
