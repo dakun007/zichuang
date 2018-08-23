@@ -61,13 +61,13 @@ class Goods extends Rotem
                     }
                     // var_dump($where);
                     // exit;
-                    $ip = ip();
-                    $ip_str = $ip['data']['country'].$ip['data']['region'].$ip['data']['city'];
+                    // $ip = ip();
+                    // $ip_str = $ip['data']['country'].$ip['data']['region'].$ip['data']['city'];
+                    // if(empty($ip_str)){
+                    // }
+                    $ip_str = ip138();
                     if(empty($ip_str)){
-                        $ip_str = ip138();
-                        if(empty($ip_str)){
-                            $ip_str = '无法获取';
-                        }
+                        $ip_str = '无法获取';
                     }
                     $data = [
                         'or_name' => $name, //产品名称

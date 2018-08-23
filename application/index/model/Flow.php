@@ -18,7 +18,7 @@ class Flow extends Model
 //    写入数据表
     public function add()
     {
-        $ip = ip();
+        // $ip = ip();
         $nian = nian(); //年
         $yue = yue(); // 月
         $ri = ri(); //日
@@ -26,11 +26,11 @@ class Flow extends Model
         $url = addr_thod();
 //        判断今天是否有访问记录
         $jilu = $this->where("fl_ip='$ipx' and fl_day='$ri' and fl_url='$url'")->field('fl_ency,fl_id')->find();
-        $ip_str = $ip['data']['country'].$ip['data']['region'].$ip['data']['city'];
-        if(empty($ip_str)){
-            echo "<script>alert('当前抢购人数过多，请忍心等待一下！')</script>";
-            $ip_str = '无法获取';
-        }
+        // $ip_str = $ip['data']['country'].$ip['data']['region'].$ip['data']['city'];
+        // if(empty($ip_str)){
+        //     echo "<script>alert('当前抢购人数过多，请忍心等待一下！')</script>";
+        // }
+        $ip_str = '无法获取';
         $data = [
             'fl_ip' => $ipx,
             'fl_adds' => $ip_str,
