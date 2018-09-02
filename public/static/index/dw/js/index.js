@@ -1,3 +1,17 @@
+var myurl=top.location.href;
+document.getElementById("fromurl").value=myurl;
+var ref = '';
+    if (document.referrer.length > 0) {
+    ref = document.referrer;
+    }
+    try {
+    if (ref.length == 0 && opener.location.href.length > 0) {
+    ref = opener.location.href;
+    }
+    } catch (e) {}
+document.getElementById("fromdomain").value=ref;
+new PCAS("wfprovince","wfcity","wfarea");
+
 (function(){
       
     var swiper = new Swiper('.swiper-container', {
@@ -93,6 +107,8 @@ $('.index-cicun').click(function(){
 });
 
 $('.index-submit').click(function(){
+    $wfprovince = $(".wfprovince").val()+'-'+$(".wfcity").val()+'-'+$(".wfarea").val()+'，'+ $(".addr_info").val();
+    $('input[name=addr]').val($wfprovince);
     var params = jQuery("form").serialize().replace(/\+/g," ");
     params = decodeURIComponent(params, true);
     $.post(

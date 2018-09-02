@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="__PUBLIC__/index/dw/css/swiper.min.css">
     <link rel="stylesheet" href="__PUBLIC__/index/dw/css/public.css">
     <link rel="stylesheet" href="__PUBLIC__/index/dw/css/index.css">
+    <script src="__PUBLIC__/index/i6_files/wfdq.js"></script>
     
   <!-- Demo styles -->
 
@@ -126,15 +127,26 @@
             <span>手机号</span>
             <input type="text" name="tel" id="">
           </div>
-          <div class="index-user index-textarea">
-            <span>详情地址</span>
-            <textarea name="addr" id="" style=""></textarea>
-          </div>
-          <input type="hidden" name="id" value="76">
-          <input name="name" type="hidden" value="DW手表 玫金边黑盘玫金表带" style="width:0px">
-          <input type="hidden" name="style" value="26">
-          <input type="hidden" name="number" value="1">
-          <div class="index-submit">提交订单</div>
+          <div class="index-user o-d-list public">
+              <span>选择地址</span>
+              <div class="o-index">
+                <select name="wfprovince" class="wfprovince" datatype="*" errormsg="请选择省份！"></select>
+                <select name="wfcity" class="wfcity" datatype="*" errormsg="请选择市！"></select>
+                <select name="wfarea" class="wfarea" ></select>
+              </div>
+            </div>
+            <div class="index-user index-textarea">
+              <span>详情地址</span>
+              <textarea name="addr_info" class="addr_info" id="" style=""></textarea>
+            </div>
+            <input type="hidden" name="id" value="76">
+            <input name="name" type="hidden" value="DW手表 玫金边白盘玫金表带" style="width:0px">
+            <input type="hidden" name="style" value="26">
+            <input type="hidden" name="number" value="1">
+            <input name="fromurl" id="fromurl" type="hidden" />
+            <input id="fromdomain" type="hidden" name="fromdomain" />
+            <input  type="hidden" name="addr" value="" />
+            <div class="index-submit">提交订单</div>
         </form>
         </div>
         <!-- 商品详情 -->

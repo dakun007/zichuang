@@ -316,6 +316,26 @@ textarea{
     -webkit-box-orient: vertical;
 }
 
+.o-index{
+    float: right;
+    width:78%;
+}
+.o-d-list {
+    height: 100%;
+    /* margin-left:5px; */
+    overflow: hidden;
+}
+
+.o-d-list select{
+   
+    line-height: 22px;
+    font-size: .75rem;
+    padding: 3px;
+    border: 1px solid #cdcdcd;
+    background: url(txtbg.gif) no-repeat;
+    margin-bottom:6px;
+}
+
 @media (max-width:455px){
     
     .index,.swiper-container,.index-buy,.index-header,.swiper-container{
