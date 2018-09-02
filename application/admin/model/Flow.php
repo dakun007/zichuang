@@ -60,7 +60,8 @@ class Flow extends Model{
 //        var_dump($where);
         // 查询状态为1的用户数据 并且每页显示10条数据
         $list = Flow::where($where)->order('fl_id desc')->group('fl_day')->paginate(10,false,['query'=>['id'=>$_GET['id'],'ri'=>$ri]]);
-        $sel = $this->where("fl_month='$yue'")->field('fl_ency,fl_day,fl_month,fl_ip')->select();
+        $cheng = $list[count($list)-1]['fl_day'];
+        $sel = $this->where("fl_month='$yue' and fl_day>='$cheng'")->field('fl_ency,fl_day,fl_month,fl_ip')->select();
         // 获取分页显示
         $page = $list->render();
         return [
@@ -83,6 +84,7 @@ class Flow extends Model{
 //        var_dump($where);
         // 查询状态为1的用户数据 并且每页显示10条数据
         $list = Flow::where($where)->order('fl_id desc')->group('fl_ip')->paginate(10,false,['query'=>['id'=>$_GET['id'],'ip'=>$ri]]);
+        
         $sel = $this->where("fl_day='$yue'")->field('fl_ency,fl_day,fl_ip')->select();
         // 获取分页显示
         $page = $list->render();

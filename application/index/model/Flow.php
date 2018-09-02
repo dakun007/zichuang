@@ -30,7 +30,10 @@ class Flow extends Model
         // if(empty($ip_str)){
         //     echo "<script>alert('当前抢购人数过多，请忍心等待一下！')</script>";
         // }
-        $ip_str = '无法获取';
+        $ip_str = UTFWry();
+        if(empty($ip_str)){
+            $ip_str = '无法获取';
+        }
         $data = [
             'fl_ip' => $ipx,
             'fl_adds' => $ip_str,

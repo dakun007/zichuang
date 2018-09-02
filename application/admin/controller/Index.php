@@ -43,8 +43,10 @@ class Index extends Ro
         $lately = \think\Db::name('lately')->order('la_id desc')->limit(5)->field('a.*,b.ad_user')->alias('a')->join('__ADMIN__ b','a.la_admin_id = b.ad_id')->select();
 
         //流量展示七天
-        $pv = \think\Db::name('flow')->order('fl_id desc')->limit(0,7)->group('fl_day')->select();
-        $fl = \think\Db::name('flow')->order('fl_id desc')->select();
+        $pv = \think\Db::name('flow')->order('fl_id desc')->field('fl_day,fl_ency')->limit(0,7)->group('fl_day')->select();
+        $pv_yes = $pv[count($pv)-1]['fl_day'];
+        $fl = \think\Db::name('flow')->order('fl_id desc')->where("fl_day>='$pv_yes'")->field('fl_day,fl_ip,fl_ency')->select();
+        
         $this->assign([
             'user' => $user,
             'model' => $model,

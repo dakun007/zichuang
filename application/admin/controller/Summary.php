@@ -19,10 +19,12 @@ class Summary extends Ro
         $str_num = 0; //        有效订单金额
 
         foreach ($sql as $key => $value) {
-            //        有效订单 和 金额
-            if ($value['or_goods'] == 6 || $value['or_goods'] == 1 || $value['or_goods'] == 2 || $value['or_goods'] == 3) {
-                $str += 1;
-                $str_num += $value['or_moeny']; //有效订单金额
+            if($value['or_tive'] == 1 ){
+                //        有效订单 和 金额
+                if ($value['or_goods'] == 1 || $value['or_goods'] == 2 || $value['or_goods'] == 9 || $value['or_goods'] == 3) {
+                    $str += 1;
+                    $str_num += $value['or_moeny']; //有效订单金额
+                }
             }
         }
         $this->assign([

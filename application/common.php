@@ -11,9 +11,26 @@
 
 // 应用公共文件
 
+// 控制后台地址
+function dizhi () {
+    $yuming = $_SERVER['HTTP_HOST']; //域名
+    //判断域名
+    // if ($yuming != 'www.mishi186.com' and $yuming != 'mishi186.com') {
+    //     echo "<div style='color:red;text-align: center;font-size:18px;'>404</div>";
+    //     exit;
+    // } 
+}
 
 
-//控制操作
+//UTFWry.dat获取ip地址信息
+function UTFWry()
+{
+    $ip_a = $_SERVER["REMOTE_ADDR"];
+    import('Net.IpLocation', EXTEND_PATH,'.php');
+    $Ip = new \IpLocation();
+    $area = $Ip->getlocation($ip_a);
+    return $area['country'];
+}
 
 
 // 产品页面地址：
@@ -298,6 +315,10 @@ function goods_fahuo($data=''){
         return '<span class="layui-badge">垃圾单</span>';
     }else if($data == 9){
         return '<span class="layui-badge">拒收</span>';
+    }else if($data == 10){
+        return '<span class="layui-badge">已完成</span>';
+    }else if($data == 11){
+        return '<span class="layui-badge">售货状态</span>';
     }
 }
 

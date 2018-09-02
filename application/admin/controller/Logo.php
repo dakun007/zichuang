@@ -11,6 +11,9 @@ use think\Controller;
 class Logo extends  Controller{
 
     public function logo(){
+        //域名
+        dizhi();
+
         // 判断是否登录
         if(session('admin_id')!='' || session('admin_user')!=''){
             header('Location:/admin/index/index.html');

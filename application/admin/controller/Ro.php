@@ -11,7 +11,9 @@ use think\Controller;
 class Ro extends Controller{
     public function __construct(){
         parent::__construct();
-
+        //域名
+        dizhi();
+        //
         if(session('admin_id')=='' || session('admin_user')==''){
             header('Location:/admin/Logo/logo.html');
             exit;

@@ -14,11 +14,11 @@
     var con2 = document.getElementById('con2');
     con2.innerHTML=con1.innerHTML;
     function scrollUp(){
-    if(area.scrollTop>=con1.offsetHeight){
-        area.scrollTop=0;
-    }else{
-        area.scrollTop++
-    }
+        if(area.scrollTop>=con1.offsetHeight){
+            area.scrollTop=0;
+        }else{
+            area.scrollTop++
+        }
     }                
     var time = 50;
     var mytimer=setInterval(scrollUp,time);
@@ -88,7 +88,26 @@
 $('.index-cicun').click(function(){
     $('.index-cicun').removeClass('index-cicun-red');
     $(this).addClass('index-cicun-red');
+    $('input[name=style]').val($(this).html());
     $('.index-imgx-ma').html($(this).html());
+});
+
+$('.index-submit').click(function(){
+    var params = jQuery("form").serialize().replace(/\+/g," ");
+    params = decodeURIComponent(params, true);
+    $.post(
+        '/index/goods/order.html',
+        params,
+        function(res){
+            if(res.code==1){
+                alert(res.msg);
+                localStorage.rel=2;
+                window.location.href=''
+            }else{
+                alert(res.msg);
+            }
+        }
+    );
 });
 
 

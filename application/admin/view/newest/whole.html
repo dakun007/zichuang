@@ -10,7 +10,7 @@
 <body>
 
 <!--搜索区域-->
-<div class="public public-ko">
+<div class="public public-ko" style="">
     <form action="{:url('newest/whole')}" method="get" class="layui-form layui-form-pane">
         <div class="layui-form-item publi-left">
             <label class="layui-form-label">产品名</label>
@@ -58,6 +58,18 @@
                        class="layui-input">
             </div>
         </div>
+
+        <div class="layui-form-item publi-left" style="padding-right: 10px;">
+                <label class="layui-form-label">快递选择</label>
+                <div class="layui-input-block">
+                    <select name="or_kuai_id">
+                        <option value=""></option>
+                        {volist name="kuai" id="ov"}
+                        <option value="{$ov['id']}" {$ov['id']==input('or_kuai_id')?'selected':''}>{$ov['username']}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
     
         <div class="layui-form-item publi-left" style="padding-right: 10px;">
             <label class="layui-form-label">订单状态</label>

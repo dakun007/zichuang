@@ -65,7 +65,7 @@ class Goods extends Rotem
                     // $ip_str = $ip['data']['country'].$ip['data']['region'].$ip['data']['city'];
                     // if(empty($ip_str)){
                     // }
-                    $ip_str = ip138();
+                    $ip_str = UTFWry();
                     if(empty($ip_str)){
                         $ip_str = '无法获取';
                     }

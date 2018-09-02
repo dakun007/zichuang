@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header"}
+</head>
+<body>
+    
+    <form class="layui-form layui-form-pane" action="{:url('add')}" method="POST">
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        {:submit()}
+    </form>
+
+
+<script src="__PUBLIC__/admin/kuai/add.js"></script>
+</body>
+</html>

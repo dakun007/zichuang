@@ -1,7 +1,7 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-class Excel extends Controller{
+class Excel extends Ro{
 
     // 有效订单
     public function Excel_order(){
@@ -74,6 +74,10 @@ class Excel extends Controller{
                 $xlsData[$k]['or_goods'] = '垃圾';
             }else if($v['or_goods']==9){
                 $xlsData[$k]['or_goods'] = '拒收';
+            }else if($v['or_goods']==10){
+                $xlsData[$k]['or_goods'] = '已完成';
+            }else if($v['or_goods']==11){
+                $xlsData[$k]['or_goods'] = '售后状态';
             }
 
             if($v['or_tive']==1){

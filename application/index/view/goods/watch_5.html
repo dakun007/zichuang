@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>丹尼尔惠灵顿DW女表 玫金边白盘玫金表带</title>
+  <title>丹尼尔惠灵顿DW 男表银色边白盘黑色皮带带日历</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <script src="__PUBLIC__/index/dw/js/jquery.js"></script>
 
@@ -15,14 +15,19 @@
 
 </head>
 <body>
-
+  <div class="index-header">
+    <a href="javascript:history.go:history.go(-1);" class="index-tui">后退</a>
+    <span class="index-middle">男表银色边白盘黑色皮带带日历</span>
+    <a href="{:url('goods/DW_home')}" class="index-home">首页</a>
+  </div>
     <div class="index public">
         <!-- 轮播图 -->
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/1.jpg" alt="">
-            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/2.jpg" alt="">
-            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/3.jpg" alt="">
+            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/05_1.jpg" alt="">
+            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/05_2.jpg" alt="">
+            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/05_3.jpg" alt="">
+            <img class="swiper-slide" src="__PUBLIC__/index/dw/img/05_4.jpg" alt="">
           </div>
           <!-- 轮动 -->
           <div class="swiper-pagination"></div>
@@ -36,7 +41,7 @@
         <!-- 名称 -->
         <div class="index-name">
             <span class="index-name-vice">官方正品</span>
-            <span class="index-name-title">丹尼尔惠灵顿DW女表 玫金边白盘玫金表带</span>
+            <span class="index-name-title">丹尼尔惠灵顿DW 男表银色边白盘黑色皮带带日历</span>
         </div>  
 
         <!-- 金额 -->
@@ -78,29 +83,9 @@
         <div class="index-name index-yes">
           <div id="scrollBox">
               <ul id="con1">
-                  <li><span>159****3681</span> <span>崔先生</span> <span>抢购成功</span></li>
-                  <li><span>135****8532</span> <span>良先生</span> <span>抢购成功</span></li>
-                  <li><span>134****3674</span> <span>刘小姐</span> <span>抢购成功</span></li>
-                  <li><span>159****3681</span> <span>张先生</span> <span>抢购成功</span></li>
-                  <li><span>138****8622</span> <span>郭先生</span> <span>抢购成功</span></li>
-                  <li><span>189****6532</span> <span>陈小姐</span> <span>抢购成功</span></li>
-                  <li><span>134****7300</span> <span>梁小姐</span> <span>抢购成功</span></li>
-                  <li><span>137****1129</span> <span>何先生</span> <span>抢购成功</span></li>
-                  <li><span>150****6803</span> <span>孔先生</span> <span>抢购成功</span></li>
-                  <li><span>159****3681</span> <span>蔡先生</span> <span>抢购成功</span></li>
-                  <li><span>135****8532</span> <span>覃先生</span> <span>抢购成功</span></li>
-                  <li><span>134****3674</span> <span>赖小姐</span> <span>抢购成功</span></li>
-                  <li><span>159****3681</span> <span>罗先生</span> <span>抢购成功</span></li>
-                  <li><span>138****8622</span> <span>张先生</span> <span>抢购成功</span></li>
-                  <li><span>189****6532</span> <span>黄小姐</span> <span>抢购成功</span></li>
-                  <li><span>134****7300</span> <span>王先生</span> <span>抢购成功</span></li>
-                  <li><span>137****1129</span> <span>刘先生</span> <span>抢购成功</span></li>
-                  <li><span>150****6803</span> <span>梁先生</span> <span>抢购成功</span></li>
-                  <li><span>159****3681</span> <span>凌小姐</span> <span>抢购成功</span></li>
-                  <li><span>135****8532</span> <span>秦先生</span> <span>抢购成功</span></li>
-                  <li><span>134****3674</span> <span>马先生</span> <span>抢购成功</span></li>
-                  <li><span>159****3681</span> <span>吕小姐</span> <span>抢购成功</span></li>
-                  <li><span>138****8622</span> <span>林先生</span> <span>抢购成功</span></li>
+                {volist name="shouji" id="ov"}
+                <li><span>{$ov['tel']} </span><span>{$ov['name']} </span><span>抢购成功</span></li>
+                {/volist}
               </ul>
               <ul id="con2"></ul>
           </div>
@@ -112,12 +97,12 @@
         </div>
         <!-- 款式信息 -->
         <div class="index-name index-yes index-imgx">
-          <img src="__PUBLIC__/index/dw/img/1.jpg" alt="" class="index-img">
+          <img src="__PUBLIC__/index/dw/img/05_1.jpg" alt="" class="index-img">
           <div class="index-imgx-text">
-            <p>丹尼尔惠灵顿DW女表 玫金边白盘玫金表带</p>
+            <p class="public-yes">丹尼尔惠灵顿DW 男表银色边白盘黑色皮带带日历</p>
             <p class="index-imgx-text-red">秒杀价:￥268.00 促销优惠</p>
             <p class="index-imgx-p">
-              <span class="index-imgx-px">已选</span> <span class="index-imgx-ma">26</span>mm
+              <span class="index-imgx-px">已选</span> <span class="index-imgx-ma">34</span>mm
             </p>
           </div>
         </div>
@@ -125,39 +110,53 @@
         <!-- 尺寸 -->
         <div class="index-name index-yes">
             尺寸 :
-            <span class="index-cicun index-cicun-red">26</span>
-            <span class="index-cicun">28</span>
-            <span class="index-cicun">30</span>
-            <span class="index-cicun">32</span>
+            <span class="index-cicun index-cicun-red">34</span>
+            <span class="index-cicun">36</span>
+            <span class="index-cicun">38</span>
+            <span class="index-cicun">40</span>
         </div>
+        <form>
         <!--用户信息填写 -->
         <div class="index-name index-yes public">
           <div class="index-user">
             <span>用户姓名</span>
-            <input type="text" name="" id="">
+            <input type="text" name="username" id="">
           </div>
           <div class="index-user">
             <span>手机号</span>
-            <input type="text" name="" id="">
+            <input type="text" name="tel" id="">
           </div>
           <div class="index-user index-textarea">
             <span>详情地址</span>
-            <textarea name="" id=""></textarea>
+            <textarea name="addr" id="" style=""></textarea>
           </div>
-
+          <input type="hidden" name="id" value="76">
+          <input name="name" type="hidden" value="男表银色边白盘黑色皮带带日历" style="width:0px">
+          <input type="hidden" name="style" value="26">
+          <input type="hidden" name="number" value="1">
           <div class="index-submit">提交订单</div>
-
+        </form>
         </div>
         <!-- 商品详情 -->
         <div class="index-name index-yes index-kuan">
             商品详情:
         </div>
         <div class="index-name index-yes index-goods public">
-          <img src="__PUBLIC__/index/dw/img/003.jpg" alt="">
-          <img src="__PUBLIC__/index/dw/img/004.jpg" alt="">
-          <img src="__PUBLIC__/index/dw/img/005.jpg" alt="">
-          <img src="__PUBLIC__/index/dw/img/07.jpg" alt="">
-          <img src="__PUBLIC__/index/dw/img/008.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_5.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_6.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_7.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_8.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_9.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_10.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_11.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_12.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_13.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_14.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_15.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_16.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/06_17.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/07.jpg" alt="">
+            <img src="__PUBLIC__/index/dw/img/008.jpg" alt="">
         </div>
 
         <!-- 空出 -->

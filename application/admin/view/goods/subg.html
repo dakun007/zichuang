@@ -20,8 +20,9 @@
         </colgroup>
         <thead>
         <tr>
-            <th>序列</th>
+            <th>ID</th>
             <th>名称</th>
+            <th>金额</th>
             <th>备注</th>
             <th>添加时间</th>
             <th>操作</th>
@@ -30,8 +31,9 @@
         <tbody>
         {volist name="list" id="vo"}
         <tr>
-            <td>{$key+1}</td>
+            <td>{$vo['go_id']}</td>
             <td>{$vo['go_user']}</td>
+            <td>{$vo['go_money']}</td>
             <td>{$vo['go_bak']}</td>
             <td>{$vo['create_time']}</td>
             <td>

@@ -41,9 +41,11 @@ class Newest extends Ro{
 
         if(!empty($id)){
             $find = \think\Db::name($sql)->field('a.*,b.go_user')->alias('a')->join('__GOODS__ b','a.or_goods_id = b.go_id')->find($id);
+            $kuai = \think\Db::name('kuai')->field('id,username')->select();
             if(!empty($id)){
                 $this->assign([
                     'find' => $find,
+                    'kuai' => $kuai,
                 ]);
                 return $this->fetch();
             }
@@ -69,10 +71,12 @@ class Newest extends Ro{
 //    展示全部订单
     public function whole(){
         $model = \think\Loader::model('order')->index();
+        $kuai = \think\Db::name('kuai')->field('id,username')->select();
         $this->assign([
             'list' => $model['list'],
             'page' => $model['page'],
             'meny' => $model['meny'],
+            'kuai' => $kuai,
         ]);
         return $this->fetch();
     }
@@ -217,6 +221,35 @@ class Newest extends Ro{
     {
         $yzm['or_tive'] = ['eq',1];
         $yzm['or_goods'] = ['eq',9];
+        $model = \think\Loader::model('order')->index($yzm);
+        $this->assign([
+            'list' => $model['list'],
+            'page' => $model['page'],
+            'meny' => $model['meny'],
+        ]);
+        return view();
+    }
+
+
+    // 展示已成功
+    public function completed()
+    {
+        $yzm['or_tive'] = ['eq',1];
+        $yzm['or_goods'] = ['eq',10];
+        $model = \think\Loader::model('order')->index($yzm);
+        $this->assign([
+            'list' => $model['list'],
+            'page' => $model['page'],
+            'meny' => $model['meny'],
+        ]);
+        return view();
+    }
+
+    // 售后状态
+    public function state()
+    {
+        $yzm['or_tive'] = ['eq',1];
+        $yzm['or_goods'] = ['eq',11];
         $model = \think\Loader::model('order')->index($yzm);
         $this->assign([
             'list' => $model['list'],

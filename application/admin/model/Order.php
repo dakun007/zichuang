@@ -19,12 +19,16 @@ class Order extends Model{
         $sex = input('sex'); //是否有效
         $tel = input('tel'); //手机号码
         $key = input('key'); //订单状态
+        $kuai = input('or_kuai_id'); //快递
         $numbers = input('numbers'); //订单号
         $kaishi = strtotime(input('kaishi')); //开始时间
         $jieshi = input('jieshi'); //结束时间
 
         if($user){
             $where['or_name'] = ['like',"%$user%"];
+        }
+        if($kuai){
+            $where['or_kuai_id'] = ['eq',$kuai];
         }
         if($sex){
             $where['or_tive'] = ['eq',$sex];
@@ -50,7 +54,6 @@ class Order extends Model{
         if ($numbers) {
             $where['or_order'] = ['like',"%$numbers%"];
         }
-        
         
         $list = Order::where($where)->where($ax)->order('or_id desc')->field('b.create_time as create_t,a.*,b.go_user')->alias('a')->join('__GOODS__ b','a.or_goods_id = b.go_id')->paginate(10,false,['query'=>['user'=>$user,'id'=>input('id'),'nian'=>input('nian'),'kaishi'=>input('kaishi'),'jieshi'=>input('jieshi'),'key'=>input('key'),'sex'=>input('sex'),'numbers'=>input('numbers'),'tel'=>input('tel')]]);
         $page = $list->render();

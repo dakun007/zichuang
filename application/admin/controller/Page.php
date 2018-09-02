@@ -8,7 +8,7 @@
  */
 namespace app\admin\controller;
 use think\Controller;
-class Page extends Controller{
+class Page extends Ro{
 
 //    展示
     public function index(){
