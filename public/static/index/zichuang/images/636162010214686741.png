@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>哎呀，页面没有找到</title>
+</head>
+<style>
+html,body,div,span,img{margin:0;padding:0;}
+html{background:#dcdadb;}
+body{max-width:640px;margin:0 auto;}
+.error-tips{
+	width:100%;	
+	position:relative;
+	overflow:hidden;
+	}
+.error-tips img{width:100%;}
+.error-return{
+	position:absolute;
+	bottom:22%;
+	width:100%;
+	text-align:center;
+	color:#636363;
+	font-size:14px;
+	}
+</style>
+
+<body>
+
+<div class="error-tips"><img src="http://res.zomvip.com/image/404error.jpg" /><div class="error-return"><span id="leftTime"></span>秒后跳到商城首页</div></div>
+<script type="text/javascript">
+	var leftTime=5;//倒计时秒数
+	function delay(){
+		document.getElementById("leftTime").innerHTML=leftTime;
+		if(leftTime==0){
+			location="http://zomvip.com/proc.aspx?pageid=index"; //跳转
+			}
+		leftTime-=1;
+		if(leftTime>=0){
+			setTimeout("delay()",1000); 
+			}
+	}
+	window.onload=function(){delay();}
+</script>
+</body>
+</html>

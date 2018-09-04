@@ -36,8 +36,11 @@ class Admin extends Ro{
             exit;
         }
         $sql = \think\Db::name('quanuser')->select();
+        $goods = \think\Db::name('goods')->field('go_id,go_user,go_bak')->where("go_jibie=1")->select();
+        
         $this->assign([
             'sql' => $sql,
+            'goods' => $goods,
         ]);
         return $this->fetch();
     }
@@ -61,10 +64,14 @@ class Admin extends Ro{
             $find = \think\Db::name($sql)->find($id);
             if(isset($find)){
                 $sql = \think\Db::name('quanuser')->select();
+                $goods = \think\Db::name('goods')->field('go_id,go_user,go_bak')->where("go_jibie=1")->select();
                 $this->assign([
                     'find' => $find,
                     'sql' => $sql,
+                    'goods' => $goods,
+                    'goId' => explode(',',$find['ad_goods_id']),
                 ]);
+
                 return $this->fetch();
             }
         }

@@ -54,10 +54,13 @@ class Order extends Model{
         if ($numbers) {
             $where['or_order'] = ['like',"%$numbers%"];
         }
-        
-        $list = Order::where($where)->where($ax)->order('or_id desc')->field('b.create_time as create_t,a.*,b.go_user')->alias('a')->join('__GOODS__ b','a.or_goods_id = b.go_id')->paginate(10,false,['query'=>['user'=>$user,'id'=>input('id'),'nian'=>input('nian'),'kaishi'=>input('kaishi'),'jieshi'=>input('jieshi'),'key'=>input('key'),'sex'=>input('sex'),'numbers'=>input('numbers'),'tel'=>input('tel')]]);
+
+        $strId = $this->pux();
+        // var_dump($strId);
+        // exit;
+        $list = Order::where($where)->where($ax)->where($strId)->order('or_id desc')->field('b.create_time as create_t,a.*,b.go_user')->alias('a')->join('__GOODS__ b','a.or_goods_id = b.go_id')->paginate(10,false,['query'=>['user'=>$user,'id'=>input('id'),'nian'=>input('nian'),'kaishi'=>input('kaishi'),'jieshi'=>input('jieshi'),'key'=>input('key'),'sex'=>input('sex'),'numbers'=>input('numbers'),'tel'=>input('tel')]]);
         $page = $list->render();
-        $meny = $this->where($where)->where($ax)->alias('a')->select();
+        $meny = $this->where($where)->where($ax)->where($strId)->alias('a')->select();
         return [
             'list' => $list,
             'page' => $page,
@@ -106,9 +109,10 @@ class Order extends Model{
         if($user){
             $where['or_year'] = ['like',"%$user%"];
         }
-        $list = Order::where($where)->order('or_id desc')->group('or_year')->paginate(10,false,['query'=>['user'=>$user]]);
+        $strId = $this->pux();
+        $list = Order::where($where)->order('or_id desc')->where($strId)->group('or_year')->paginate(10,false,['query'=>['user'=>$user]]);
         $page = $list->render();
-        $meny = $this->where($where)->select();
+        $meny = $this->where($where)->where($strId)->select();
         return [
             'list' => $list,
             'page' => $page,
@@ -125,14 +129,29 @@ class Order extends Model{
         $where['or_tive'] = ['eq',1];
         $where['or_goods'] = ['eq',2];
         $where['or_year'] = ['eq',arr_jie(input('id'))];
-        $list = Order::where($where)->order('or_id desc')->group('or_month')->paginate(10,false,['query'=>['user'=>input('user'),'id'=>input('id')]]);
+        $strId = $this->pux();
+        $list = Order::where($where)->where($strId)->order('or_id desc')->group('or_month')->paginate(10,false,['query'=>['user'=>input('user'),'id'=>input('id')]]);
         $page = $list->render();
-        $meny = $this->where($where)->select();
+        $meny = $this->where($where)->where($strId)->select();
         return [
             'list' => $list,
             'page' => $page,
             'meny' => $meny,
         ];
+    }
+
+    public function pux()
+    {
+        $goodsId = cache('goods');
+        $strId = "";
+        if(!empty($goodsId)){
+            foreach($goodsId as $key => $val){
+                $strId .= "or_goods_id=$val or ";
+            }
+            return substr($strId,0,-4);
+        }else{
+            return '';
+        }
     }
 
 //    订单数据汇总
@@ -150,7 +169,8 @@ class Order extends Model{
             $jieshi = strtotime($jieshi.'23:59:59');
             $where['create_time'] = ['elt',$jieshi];
         }
-        $sql = $this->where($where)->select();
+        $strId = $this->pux();
+        $sql = $this->where($where)->where($strId)->select();
         return $sql;
     }
 

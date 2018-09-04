@@ -29,6 +29,15 @@
             </select>
         </div>
     </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择产品ID</label>
+        <div class="layui-input-block">
+            {volist name="goods" id="ov"}
+            <input type="checkbox" name="ad_goods_id[]" value="{$ov['go_id']}" title="{$ov['go_id']}">（{$ov['go_bak']}）
+            {/volist}
+        </div>
+    </div>
     <button class="layui-btn submit-btn" lay-submit lay-filter="formDemo">立即提交</button>
 </form>
 

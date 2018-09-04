@@ -47,6 +47,7 @@ id: ad_id
 密码： ad_passad
 加密： ad_passad_jia
 权限id: ad_quanuser_id
+页面id: ad_goods_id
 添加时间： create_time
 修改时间:  update_time
 

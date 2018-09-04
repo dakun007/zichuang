@@ -37,8 +37,9 @@ class Index extends Ro
 //        最新订单24小时
         $yzm['or_tive'] = ['eq',1];
         $yzm['or_day'] = ['eq',$ri];
-        $model = \think\Db::name('order')->where($yzm)->count();
-        $order = \think\Db::name('order')->count();
+        $ysx = model('Order')->pux();
+        $model = \think\Db::name('order')->where($ysx)->where($yzm)->count();
+        $order = \think\Db::name('order')->where($ysx)->count();
 //        最近登陆
         $lately = \think\Db::name('lately')->order('la_id desc')->limit(5)->field('a.*,b.ad_user')->alias('a')->join('__ADMIN__ b','a.la_admin_id = b.ad_id')->select();
 
@@ -81,6 +82,7 @@ class Index extends Ro
 
 //    退出
     public function tui(){
+        cache('goods',null);
         session(null);
         $this->success('退出成功',url('logo/logo'));
     }

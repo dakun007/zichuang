@@ -19,6 +19,8 @@ class Ro extends Controller{
             exit;
         }
 
+        
+
 //        权限
         $kon = request()->controller();
         $zhi = request()->action();

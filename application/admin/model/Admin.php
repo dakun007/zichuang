@@ -17,8 +17,9 @@ class Admin extends Model{
 //    添加
     public function add(){
 //        验证
-        $data = input('post.');
+        $data = $_POST;
         $str = public_xy($data);
+        $data['ad_goods_id'] = implode(',',$_POST['ad_goods_id']);
         if($str == 200){
 //            判断用户是否重复
             $user = $data['ad_user'];
@@ -29,7 +30,7 @@ class Admin extends Model{
                 $data['ad_passad_jia'] = $shuiji;
 //                添加数据
                 $opre = new Admin($data);
-                $opre->allowField(['ad_user','ad_passad_jia','ad_passad','ad_quanuser_id'])->save();
+                $opre->allowField(['ad_user','ad_passad_jia','ad_passad','ad_quanuser_id','ad_goods_id'])->save();
                 if($opre->ad_id){
                     return 200;
                 }else{
@@ -76,7 +77,8 @@ class Admin extends Model{
                 }
                 $data['ad_quanuser_id'] = input('post.ad_quanuser_id');
                 $data['ad_user'] = $user;
-                $opre = Admin::allowField(['ad_user','ad_passad_jia','ad_passad','ad_quanuser_id'])->save($data,['ad_id'=>$id]);
+                $data['ad_goods_id'] = implode(',',$_POST['ad_goods_id']);
+                $opre = Admin::allowField(['ad_user','ad_passad_jia','ad_passad','ad_quanuser_id','ad_goods_id'])->save($data,['ad_id'=>$id]);
                 if($opre){
                     return 200;
                 }else{
@@ -123,6 +125,26 @@ class Admin extends Model{
                      'la_ip_adds' => $ip_str,
                  ];
                  $tely->save($da);
+                //  存储缓存
+                cache('goods',null);
+                if(!empty($find['ad_goods_id'])){
+                    $goodsId = explode(',',$find['ad_goods_id']);
+                    $goods = new Goods;
+                    $arr = '';
+                    $aa = '';
+                    foreach($goodsId as $key => $val){
+                        $aa = $goods->field("go_id")->where("go_guan='$val'")->select();
+                        if(!empty($aa)){
+                            foreach($aa as $key => $val){
+                                $arr[] = $val['go_id'];
+                            }
+                        }
+                    }
+                    if(!empty($arr)){
+                        $goodsId = array_merge_recursive($goodsId,$arr);
+                    }
+                    cache('goods',$goodsId);
+                }
                 return 200;
             }
         }

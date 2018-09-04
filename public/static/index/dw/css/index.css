@@ -334,6 +334,17 @@ textarea{
     border: 1px solid #cdcdcd;
     background: url(txtbg.gif) no-repeat;
     margin-bottom:6px;
+    
+}
+
+#footer {
+padding-top: 15px;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    margin-bottom: 66px;
+    color: #81838e;
 }
 
 @media (max-width:455px){

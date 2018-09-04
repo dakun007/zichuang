@@ -15,10 +15,10 @@
 function dizhi () {
     $yuming = $_SERVER['HTTP_HOST']; //域名
     //判断域名
-    // if ($yuming != 'www.mishi186.com' and $yuming != 'mishi186.com') {
-    //     echo "<div style='color:red;text-align: center;font-size:18px;'>404</div>";
-    //     exit;
-    // } 
+    if ($yuming != 'www.mishi186.com' and $yuming != 'mishi186.com' and $yuming != 'www.mi1888.com') {
+        echo "<div style='color:red;text-align: center;font-size:18px;'>404</div>";
+        exit;
+    } 
 }
 
 
